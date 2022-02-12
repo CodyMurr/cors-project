@@ -102,8 +102,13 @@ def logout(request):
     return redirect('login')
 
 
-def activate(request):
-    user = None
+def activate(request, uidb64, token):
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = Account._default_manager.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
+        user = None
+
     if user is not None and default_token_generator.check_token(user, token):
         user.is_active = True
         user.save()
@@ -115,4 +120,10 @@ def activate(request):
 
 
 def forgetPassword(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        if Account.objects.filter(email=email).exists():
+            user = Account.objects.get(email__exact=email)
+
+        # reset password email
     return render(request, 'accounts/forgetPassword.html')
