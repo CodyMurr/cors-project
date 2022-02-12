@@ -1,23 +1,22 @@
-
 <nav>
-			<div class="nav-wrapper">
-				<ul>
-					<li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Cat Collector</a></li>
-				</ul>
-				<ul class="right">
-					<li><a href="{% url 'about' %}">About</a></li>
-					{% if user.is_authenticated %}
-					<li><a href="{% url 'catagories_create' %}">All Catagories</a></li>
-					<li><a href="{% url 'shop_index' %}">Shop</a></li>
-					<li><a href="{% url 'search_create' %}">Search</a></li>
-					
-					
-					{% else %}
-					
-					<li><a href="{% url 'login' %}">Log In</a></li>
-					<li><a href="{% url 'index' %}">Cart</a></li>
-					{% endif %}
-				</ul>
-			</div>
-		</nav>
+    <div class="nav-wrapper">
+        <ul>
+            <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Cat Collector</a></li>
+        </ul>
+        <ul class="right">
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'catagories_create' %}">All Catagories</a></li>
+            <li><a href="{% url 'shop_index' %}">Shop</a></li>
+            <li><a href="{% url 'search_create' %}">Search</a></li>
 
+
+            {% else %}
+
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'index' %}">Cart</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
