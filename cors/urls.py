@@ -21,10 +21,14 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('store/', views.store, name='store'),  # delete when store app created
+    # path('store/', include('store.urls')),
+    # delete when order/cart app created
+    path('cart/', views.cart, name='cart'),
+    # path('cart/', include('cart.urls')),
+    # delete when search is created
+    path('search/', views.search, name='search'),
+    # delete when category app created
+    path('category/', views.category, name='category'),
 ]
-
-
-
-
- 
-
