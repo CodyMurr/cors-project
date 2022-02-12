@@ -1,9 +1,9 @@
+from django.forms import PasswordInput
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Account, UserProfile
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
 from .forms import SignupForm, UserForm, UserProfileForm
 from django.http import HttpResponse
 
@@ -126,4 +126,38 @@ def forgetPassword(request):
             user = Account.objects.get(email__exact=email)
 
         # reset password email
+        current_site = get_current_site(request)
+        mail_subject = 'Reset Your Password'
+        message = render_to_string('accounts/reset_password_email.html', {
+            'user': user,
+            'domain': current_site,
+            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+            'token': default_token_generator.make_token(user),
+        })
+        to_email = email
+        send_email = EmailMessage(mail_subject, message, to=[to_email])
+        send_email.send()
+
+        messages.success(
+            request, 'Password reset email has been sent to you email address')
+        return redirect('forgetPassword')
     return render(request, 'accounts/forgetPassword.html')
+
+
+def resetPassword(request):
+    if request.method == 'POST':
+        password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+
+        if password == confirm_password:
+            uid = request.session.get('uid')
+            user = Account.objects.get(pk=uid)
+            user.set_password(password)
+            user.save()
+            messages.success(request, 'Password reset successful')
+            return redirect('login')
+        else:
+            messages.success(request, 'Password does not match')
+            return redirect('resetPassword')
+    else:
+        return render(request, 'accounts/resetPassword.html')
