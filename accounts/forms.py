@@ -2,11 +2,7 @@ from django import forms
 from .models import Account, UserProfile
 from django.core.exceptions import ValidationError
 from django.contrib.auth.models import User
-from django.contrib.auth.tokens import default_token_generator
-from django.utils.encoding import force_bytes
-from django.utils.http import urlsafe_base64_encode
-from django.conf import settings
-from django.template.loader import render_to_string
+
 from django.core.mail import send_mail
 
 
@@ -32,31 +28,6 @@ class SignupForm(forms.ModelForm):
 
         if password != confirm_password:
             raise forms.ValidationError("Passwords do not match!")
-
-    def save(self, request):
-
-        user = super(forms.ModelForm, self).save(commit=False)
-        user.is_active = False
-        user.save()
-
-        context = {
-            # 'from_email': settings.DEFAULT_FROM_EMAIL,
-            'request': request,
-            'protocol': request.scheme,
-            'username': self.cleaned_data.get('username'),
-            'domain': request.META['HTTP_HOST'],
-            'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-            'token': default_token_generator.make_token(user),
-        }
-
-        subject = render_to_string(
-            'djangobin/email/activation_subject.txt', context)
-        email = render_to_string(
-            'djangobin/email/activation_email.txt', context)
-
-        send_mail(subject, email, settings.DEFAULT_FROM_EMAIL, [user.email])
-
-        return user
 
 
 class UserForm(forms.ModelForm):

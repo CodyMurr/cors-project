@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<section class="section-conten padding-y" style="min-height:70vh">
+<div class="section-content padding-y" style="min-height:70vh">
 
 
     {% if request.GET.command == 'verification' %}
@@ -41,5 +41,5 @@
     <p class="text-center mt-4">Need an account? <a href="{% url 'signup' %}">Sign up</a></p>
     <br><br> {% endif %}
 
-</section>
+</div>
 {% endblock %}

@@ -62,11 +62,17 @@ def signup(request):
             # activate the user
             current_site = get_current_site(request)
             mail_subject = "Hello beautiful, activate your account"
-            msg = render_to_string('accounts/verify_email.html')
-
+            msg = render_to_string('accounts/verify_email.html', {
+                'user': user,
+                'domain': current_site,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': default_token_generator.make_token(user),
+            })
+            to_email = email
+            send_email = EmailMessage(mail_subject, msg, to=[to_email])
+            send_email.send()
             # This is how we log a user in via code
-            login(request, user)
-            return redirect('index')
+            return redirect('/accounts/login/?command=verification&email='+email)
         else:
             error_message = 'Invalid sign up - try again'
     # A bad POST or a GET request, so render signup.html with an empty form
