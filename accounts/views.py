@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Account, UserProfile
-from django.contrib import auth
+from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
@@ -18,6 +18,7 @@ from django.core.mail import EmailMessage
 # Create your views here.
 
 
+@login_required
 def dashboard(request):
     userprofile = UserProfile.objects.get(user_id=request.user.id)
     context = {'userprofile': userprofile}
@@ -25,6 +26,19 @@ def dashboard(request):
 
 
 def login(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+
+        user = auth.authenticate(email=email, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'You are now logged in.')
+            url = request.META.get('HTTP_REFERER')
+        else:
+            messages.error(request, 'Invalid login credentials')
+            return redirect('login')
     return render(request, 'accounts/login.html')
 
 
@@ -81,8 +95,23 @@ def signup(request):
     return render(request, 'accounts/signup.html', context)
 
 
+@login_required
 def logout(request):
-    return render(request, 'accounts/logout.html')
+    auth.logout(request)
+    messages.success(request, 'You are logged out.')
+    return redirect('login')
+
+
+def activate(request):
+    user = None
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.sucess(request, "Congratulations! Your account is activated.")
+        return redirect('login')
+    else:
+        messages.error(request, 'Invalid activation link')
+        return redirect('signup')
 
 
 def forgetPassword(request):

@@ -9,7 +9,7 @@
             </div>
 
             <form method="POST" action="{% url 'signup' %}">
-                {% csrf_token %} {{ form.as_p }}
+                {% csrf_token %}
                 <div class="form-row">
                     <div class="col form-group">
                         <label>First name</label> {{ form.first_name }}
@@ -39,7 +39,7 @@
                 <div class="form-group">
 
 
-                    <input type="submit" class="btn btn-dark btn-block text-white" value="signup">
+                    <input type="submit" class="btn btn-dark btn-block text-white" value="Sign Up">
             </form>
 
             </div>
