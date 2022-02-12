@@ -11,3 +11,19 @@ def dashboard(request):
     userprofile = UserProfile.objects.get(user_id=request.user.id)
     context = {'userprofile': userprofile}
     return render(request, 'accounts/dashboard.html', context)
+
+
+def login(request):
+    return render(request, 'accounts/login.html')
+
+
+def signup(request):
+    return render(request, 'accounts/signup.html')
+
+
+def logout(request):
+    return render(request, 'accounts/logout.html')
+
+
+def forgetPassword(request):
+    return render(request, 'accounts/forgetPassword.html')
