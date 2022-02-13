@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts',
+    'store',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -102,14 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# PASSWORD_HASHERS = [
-#     'django.contrib.auth.hashers.Argon2PasswordHasher',
-#     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
-#     'myproject.hashers.MyPBKDF2PasswordHasher',
-#     'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-#     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-# ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/dev/topics/i18n/
@@ -129,7 +122,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    '/cors/static/',
 ]
 
 LOGIN_REDIRECT_URL = '/'

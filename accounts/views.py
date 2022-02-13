@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Account, UserProfile
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login
+from django.contrib.auth import login, get_user_model
 from .forms import SignupForm, UserForm, UserProfileForm
 from django.http import HttpResponse
 
@@ -15,7 +15,11 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 
+import requests
+
 # Create your views here.
+
+Account = get_user_model()
 
 
 @login_required
@@ -54,7 +58,6 @@ def signup(request):
             phone_number = form.cleaned_data['phone_number']
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            username = form.cleaned_data['username']
             username = email.split("@")[0]
             user = Account.objects.create_user(
                 first_name=first_name,
@@ -69,7 +72,7 @@ def signup(request):
 
             # create a new user profile
             profile = UserProfile()
-            profile_user_id = user.id
+            profile.user_id = user.id
             profile.profile_picture = 'default/default-user.png'
             profile.save()
 
