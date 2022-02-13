@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+# from .models import User
 
 # Create your models here.
 
@@ -16,3 +17,24 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Product(models.Model):
+    category = models.ForeignKey(
+        Category, related_name='product', on_delete=models.CASCADE)
+    product_name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True)
+    description = models.TextField(
+        max_length=255, unique=True)
+    price = models.IntegerField()
+    product_images = models.ImageField(blank=True, upload_to='product_images')
+    stock = models.IntegerField()
+
+    # required
+
+    is_available = models.BooleanField(default=True)
+    created_date = models.DateTimeField(auto_now_add=True)
+    modified_date = models.DateTimeField(auto_now_add=True)
+
+    REQUIRED_FIELDS = ['category', 'product_name',
+                       'description', 'price', 'product_images', 'slug']
