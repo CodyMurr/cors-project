@@ -15,8 +15,24 @@ def get_products():
     products = response["products"]
     return products
 
+def product_detail(pId, skuId):
+    querystring = {"productId":pId,"preferedSku":skuId}
+    response = requests.get(f'{BASE_URL}detail', headers=HEADERS, params=querystring).json()
+    return response
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        for i in get_products():
-            print(i["displayName"])
+        # for i in get_products():
+        #     detail = product_detail(i["productId"], i["currentSku"]["skuId"])
+        #     product = Product(
+        #         category = detail["parentCategory"]["parentCategory"]["displayName"],
+        #         product_name = detail["brand"]["displayName"],
+        #         slug = detail["brand"]["displayName"],
+        #         description = detail["quickLookDescription"],
+        #         price = float(detail["currentSku"]["listPrice"][1:]),
+        #         product_images = detail["currentSku"]["skuImages"]["image135"],
+        #         stock = 100
+        #     )
+        #     product.save()
+            
         self.stdout.write(self.style.SUCCESS("Complete"))
