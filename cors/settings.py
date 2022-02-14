@@ -125,8 +125,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-LOGIN_REDIRECT_URL = '/store/'
-LOGOUT_REDIRECT_URL = '/store/'
+LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/home/'
 
 
 MEDIA_URL = '/media/'

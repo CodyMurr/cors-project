@@ -2,18 +2,18 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 
-def store(request):
-    return render(request, 'store.html')
+def home(request):
+    return render(request, 'store/home.html')
 
 
 def about(request):
-    return render(request, 'about.html')
+    return render(request, 'store/about.html')
 
 # placed here temporarily until order, store, category app are created
 
 
 def cart(request):
-    return render(request, 'store/cart.html')
+    return render(request, 'store/products/cart.html')
 
 
 def category(request):
