@@ -6,6 +6,7 @@
 {% for i in products %}
     <div>
         <p>{{ i.product_name }}</p>
+        <img src="{{ i.product_images }}">
         <p>{{ i.description }}</p>
         <p>{{ i.price }}</p>
     </div>
