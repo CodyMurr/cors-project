@@ -66,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'store.views.categories',
             ],
         },
     },
@@ -124,8 +125,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
 
-LOGIN_REDIRECT_URL = 'store'
-LOGOUT_REDIRECT_URL = 'store'
+LOGIN_REDIRECT_URL = '/store/'
+LOGOUT_REDIRECT_URL = '/store/'
 
 
 MEDIA_URL = '/media/'

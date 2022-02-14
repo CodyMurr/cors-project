@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('accounts.urls')),
     path('', include('store.urls', namespace='store')),
+    path('store/', views.store, name='store'),
     path('about/', views.about, name='about'),
     # delete when order/cart app created
     path('cart/', views.cart, name='cart'),

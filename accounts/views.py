@@ -1,3 +1,4 @@
+from pyexpat import model
 from django.forms import PasswordInput
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Account, UserProfile
@@ -16,34 +17,6 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 
 import requests
-
-# Create your views here.
-
-Account = get_user_model()
-
-
-@login_required
-def dashboard(request):
-    userprofile = UserProfile.objects.get(user_id=request.user.id)
-    context = {'userprofile': userprofile}
-    return render(request, 'accounts/dashboard.html', context)
-
-
-def login(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-
-        user = auth.authenticate(email=email, password=password)
-
-        if user is not None:
-            auth.login(request, user)
-            messages.success(request, 'You are now logged in.')
-            url = request.META.get('HTTP_REFERER')
-        else:
-            messages.error(request, 'Invalid login credentials')
-            return redirect('login')
-    return render(request, 'accounts/login.html')
 
 
 def signup(request):
@@ -96,6 +69,33 @@ def signup(request):
     form = SignupForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'accounts/signup.html', context)
+
+
+Account = get_user_model()
+
+
+@login_required
+def dashboard(request):
+    userprofile = UserProfile.objects.get(user_id=request.user.id)
+    context = {'userprofile': userprofile}
+    return render(request, 'accounts/dashboard.html', context)
+
+
+def login(request):
+    if request.method == 'POST':
+        email = request.POST['email']
+        password = request.POST['password']
+
+        user = auth.authenticate(email=email, password=password)
+
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'You are now logged in.')
+            url = request.META.get('HTTP_REFERER')
+        else:
+            messages.error(request, 'Invalid login credentials')
+            return redirect('login')
+    return render(request, 'accounts/login.html')
 
 
 @login_required
