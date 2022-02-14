@@ -41,5 +41,4 @@ class Command(BaseCommand):
             )   
             product.save()
         # clear_data()
-            # print(detail["parentCategory"]["displayName"])
         self.stdout.write(self.style.SUCCESS("Complete"))
