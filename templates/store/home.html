@@ -1,15 +1,9 @@
-{% extends './base.html' %} {% block content %}
+{% extends './base.html' %} 
+{% block content %}
 
 {% comment %} this is the home page {% endcomment %}
-<h1>Store</h1>
 
-{% for i in products %}
-    <div>
-        <p>{{ i.product_name }}</p>
-        <img src="{{ i.product_images }}">
-        <p>{{ i.description }}</p>
-        <p>{{ i.price }}</p>
-    </div>
-{% endfor %}
+<a href="https://imgur.com/Av938ti"><img src="https://i.imgur.com/Av938ti.png" title="source: imgur.com" width="1475px" height="780px"/></a>
+
 
 {% endblock %}
