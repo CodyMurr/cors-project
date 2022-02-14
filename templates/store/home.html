@@ -3,6 +3,14 @@
 
 {% comment %} this is the home page {% endcomment %}
 
+{% for i in products %}
+    <div>
+        <p>{{ i.product_name }}</p>
+        <p>{{ i.description }}</p>
+        <p>{{ i.price }}</p>
+        <button class="btn-md">Add to cart</button>
+    </div>
+{% endfor %}
 
 <a href="https://imgur.com/Av938ti"><img src="https://i.imgur.com/Av938ti.png" title="source: imgur.com" width="1475px" height="780px"/></a>
 {% endblock %}
