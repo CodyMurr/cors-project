@@ -7,10 +7,10 @@
 
 {% for i in products %}
     <div>
-        <p>{{ i.product_name }}</p>
-        <img src="{{ i.product_images }}">
+        <p>{{ i.name }}</p>
         <p>{{ i.description }}</p>
         <p>{{ i.price }}</p>
+        <a href="{% url 'cart_add' product.id %}">Add To Cart</a>
     </div>
 {% endfor %}
 
