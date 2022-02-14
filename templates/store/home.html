@@ -5,10 +5,10 @@
 
 {% for i in products %}
     <div>
-        <p>{{ i.product_name }}</p>
+        <p>{{ i.name }}</p>
         <p>{{ i.description }}</p>
         <p>{{ i.price }}</p>
-        <button class="btn-md">Add to cart</button>
+        <a href="{% url 'cart_add' product.id %}">Add To Cart</a>
     </div>
 {% endfor %}
 

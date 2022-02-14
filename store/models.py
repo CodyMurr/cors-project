@@ -6,11 +6,11 @@ from django.urls import reverse
 
 
 class Product(models.Model):
-    product_name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     description = models.TextField(blank=True)
     price = models.FloatField()
-    product_images = models.ImageField(blank=True, upload_to='images/')
+    image = models.ImageField(blank=True, upload_to='products/')
     stock = models.PositiveIntegerField()
 
     # required
@@ -25,10 +25,10 @@ class Product(models.Model):
         ordering = ('-created_date',)
 
     def __str__(self):
-        return self.product_name
+        return self.name
 
-    REQUIRED_FIELDS = ['category', 'product_name',
-                       'description', 'price', 'product_images', 'slug']
+    REQUIRED_FIELDS = ['category', 'name',
+                       'description', 'price', 'image', 'slug']
 
 
 class Category(models.Model):
