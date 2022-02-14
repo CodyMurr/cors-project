@@ -1,18 +1,17 @@
 <nav>
     <div class="nav-wrapper">
         <ul>
-            <li><a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;Home</a></li>
+            <li><a href="{% url 'store' %}" class="left brand-logo">&nbsp;&nbsp;Store</a></li>
         </ul>
         <ul class="right">
             <li><a href="{% url 'about' %}">About</a></li>
-            {% if user.is_authenticated %}
-            <li><a href="{{ category.get_url }}">{{ category.category.name }}</a></li>
-            <li><a href="{% url 'store' %}">Shop</a></li>
+        {% if user.is_authenticated %}
+            {% comment %} <li><a href="{{ category.get_url }}">{{ category.category.name }}</a></li> {% endcomment %}
             <li><a href="{% url 'search' %}">Search</a></li>
-            {% else %}
-            <li><a href="{% url 'login' %}">Log In</a></li>
             <li><a href="{% url 'cart' %}">Cart</a></li>
-            {% endif %}
+        {% else %}
+            <li><a href="{% url 'login' %}">Log In</a></li>
+        {% endif %}
         </ul>
     </div>
 </nav>
