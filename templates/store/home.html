@@ -3,6 +3,12 @@
 {% comment %} this is the home page {% endcomment %}
 <h1>Store</h1>
 
-
+{% for i in products %}
+    <div>
+        <p>{{ i.product_name }}</p>
+        <p>{{ i.description }}</p>
+        <p>{{ i.price }}</p>
+    </div>
+{% endfor %}
 
 {% endblock %}
