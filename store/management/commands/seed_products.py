@@ -1,12 +1,15 @@
 from django.core.management.base import BaseCommand
-from ...models import Product
+from ...models import Product, Category
 import requests
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 BASE_URL = "https://sephora.p.rapidapi.com/products/"
 
 HEADERS = {
     'x-rapidapi-host': "sephora.p.rapidapi.com",
-    'x-rapidapi-key': "a458fc8e21msh8965fedee115759p1a7861jsn77b90d60b5d0"
+    'x-rapidapi-key': os.environ['RAPIDAPI_KEY']
 }   
 
 def get_products():
@@ -20,19 +23,23 @@ def product_detail(pId, skuId):
     response = requests.get(f'{BASE_URL}detail', headers=HEADERS, params=querystring).json()
     return response
 
+def clear_data():
+    Product.objects.all().delete()
+
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        # for i in get_products():
-        #     detail = product_detail(i["productId"], i["currentSku"]["skuId"])
-        #     product = Product(
-        #         category = detail["parentCategory"]["parentCategory"]["displayName"],
-        #         product_name = detail["brand"]["displayName"],
-        #         slug = detail["brand"]["displayName"],
-        #         description = detail["quickLookDescription"],
-        #         price = float(detail["currentSku"]["listPrice"][1:]),
-        #         product_images = detail["currentSku"]["skuImages"]["image135"],
-        #         stock = 100
-        #     )
-        #     product.save()
-            
+        for i in get_products():
+            detail = product_detail(i["productId"], i["currentSku"]["skuId"])
+            product = Product(
+                product_name = detail["brand"]["displayName"],
+                slug = detail["brand"]["displayName"],
+                description = detail["quickLookDescription"],
+                price = float(detail["currentSku"]["listPrice"][1:]),
+                product_images = detail["currentSku"]["skuImages"]["image135"],
+                stock = 100,
+                category = Category(name=detail["parentCategory"]["parentCategory"]["displayName"], slug=detail["parentCategory"]["parentCategory"]["displayName"])
+            )   
+            product.save()
+        # clear_data()
+            # print(detail["parentCategory"]["displayName"])
         self.stdout.write(self.style.SUCCESS("Complete"))
