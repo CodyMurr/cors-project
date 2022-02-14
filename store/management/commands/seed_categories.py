@@ -2,23 +2,33 @@ from django.core.management.base import BaseCommand
 from ...models import Category
 import requests
 
+categories = [
+    'Skincare',
+    'Moisturizers',
+    'Face',
+    'Treatments',
+    'Body Moisturizers',
+    'Cleansers',
+    'Lip',
+    'Sunscreen',
+    'Self Tanners',
+    'Eye Care',
+    'Masks',
+    'Hair Styling & Treatments',
+    'Women',
+    'High Tech Tools'
+]
 
-BASE_URL = "https://sephora.p.rapidapi.com/categories/list/"
-
-HEADERS = {
-    'x-rapidapi-host': "sephora.p.rapidapi.com",
-    'x-rapidapi-key': "a458fc8e21msh8965fedee115759p1a7861jsn77b90d60b5d0"
-}
-
-def get_categories():
-    querystring = {"categoryId": "cat150006"}
-    response = requests.get(BASE_URL, headers=HEADERS, params=querystring).json()
-    categories = response["childCategories"]
-    return categories
+def clear_data():
+    Category.objects.all().delete()
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        for i in get_categories():
-            print(i["displayName"], i["categoryId"])
+        for i in categories:
+            category = Category(
+                name = i,
+                slug = i
+            )
+            category.save()
+        # clear_data()
         self.stdout.write(self.style.SUCCESS("Complete"))
-        
