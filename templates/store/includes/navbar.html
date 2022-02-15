@@ -7,11 +7,15 @@
 
 ​
         <div class="collapse navbar-collapse" id="navbarColor02">
-            <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item {% if nbar == 'shop' %}active{% endif %}">
-                    <a class="nav-link" href="{% url 'home' %}">SHOP</a>
+            <ul class = "dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="">SHOP</a></li>
+                {% for c in categories %}
+                <li>
+                    <a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name|title }}</a>
                 </li>
+                {% endfor %}
+            </ul>
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item {% if nbar == 'about' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
                 </li>
