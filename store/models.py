@@ -5,11 +5,11 @@ from django.urls import reverse
 
 
 class Product(models.Model):
-    product_name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     description = models.TextField(blank=True)
-    price = models.FloatField()
-    product_images = models.ImageField(blank=True, upload_to='images/')
+    price = models.DecimalField(max_digits=2, decimal_places=2)
+    image = models.ImageField(blank=True, upload_to='images/')
     stock = models.PositiveIntegerField()
 
     # required
@@ -27,10 +27,10 @@ class Product(models.Model):
         return reverse("store:product_detail", args=[self.slug])
 
     def __str__(self):
-        return self.product_name
+        return self.name
 
-    REQUIRED_FIELDS = ['category', 'product_name',
-                       'description', 'price', 'product_images', 'slug']
+    REQUIRED_FIELDS = ['category', 'name',
+                       'description', 'price', 'image', 'slug']
 
 
 class Category(models.Model):

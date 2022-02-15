@@ -1,39 +1,35 @@
-{% extends './base.html' %} 
-{% block content %}
+{% extends './base.html' %} {% load static %} {% block content %}
 
-{% comment %} this is the home page {% endcomment %}
-
-<section class="py-5 text-center container">
-    <div class="row py-lg-3">
-      <div class="col-lg-6 col-md-8 mx-auto">
-        <h1 class="h1 fw-bold">Simply your skincare search</h1>
-        <p class="lead text-muted">It's time to look and feel younger today that yesterday</p>
-        <p>
-          <a href="#" class="btn btn-primary my-2">Make an account</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-{% for i in products %}
-
-<div class="col">
-    <div class="card shadow-sm">
-      <img class="img-fluid" alt="Responsive image" src="{{ i.product.image.url }}">
-      <div class="card-body">
-        <p class="card-text">
-          <a class="text-dark text-decoration-none" href="{{ product.get_absolute_url }}">{{ i.product_name  }}</a>
-        </p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">{{ i.description }}</small>
+<section class="section-intro padding-y-sm">
+    <div class="container">
+        <div class="intro-banner-wrap">
+            <img src="{% static 'images/banners/1.png' %}" class="img-fluid rounded">
         </div>
-        <p class="text-muted">{{ i.price }}</p>
-      </div>
-      <button class="btn btn-md btn-dark text-white">Add to cart</button>
     </div>
-  </div>
+</section>
 
-    
-{% endfor %}
+<section class="section-name padding-y-sm">
+    <div class="container">
+        <header class="section-heading">
+            <a href="./store.html" class="btn btn-outline-dark float-right">See all</a>
+            <h3 class="section-title">Popular products</h3>
+        </header>
+
+        {% for i in products %}
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card card-product-grid">
+                        <a href="{{ product.get_absolute_url }}" class="img-wrap"> <img src="{{ i.product_images.url }}"> </a>
+                        <figcaption class="info-wrap">
+                            <a class="text-dark text-decoration-none title" href="{{ product.get_absolute_url }}">{{ i.product_name  }}</a>
+                            <div class="price mt-1">${{ i.price }}</div>
+                        </figcaption>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+</section>
 
 {% endblock %}
