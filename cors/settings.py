@@ -24,10 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-DB_NAME = os.environ['DB_NAME'] 
-DB_HOST = os.environ['DB_HOST']
-DB_USER = os.environ['DB_USER']
-DB_PASS = os.environ['DB_PASS']
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -85,11 +82,7 @@ WSGI_APPLICATION = 'cors.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': DB_NAME,
-        'HOST': DB_HOST,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASS,
-        'PORT': 5432
+        'NAME': 'cors',
     }
 }
 
