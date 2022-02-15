@@ -14,9 +14,9 @@ RATING = (
 
 class Review(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    rating: models.CharField(choices=RATING, max_length=10)
-    subject: models.CharField(max_length=100)
-    content: models.TextField(max_length=300)
+    rating = models.CharField(choices=RATING, max_length=10)
+    subject = models.CharField(max_length=100)
+    content = models.TextField(max_length=300)
 
 
 class Product(models.Model):
