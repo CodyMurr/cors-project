@@ -4,7 +4,6 @@ from django.urls import reverse
 # Create your models here.
 
 
-
 class Product(models.Model):
     product_name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
@@ -23,6 +22,9 @@ class Product(models.Model):
     class Meta:
         verbose_name_plural = 'Products'
         ordering = ('-created_date',)
+
+    def get_absolute_url(self):
+        return reverse("store:product_detail", args=[self.slug])
 
     def __str__(self):
         return self.product_name
