@@ -32,7 +32,7 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now_add=True)
-    review = models.ForeignKey(Review, on_delete=models.CASCADE, null=True)
+    review=models.ForeignKey(Review, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name_plural = 'Products'
