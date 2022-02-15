@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 from accounts.models import Account
-
 # Create your models here.
 
 RATING=(
@@ -26,13 +25,14 @@ class Product(models.Model):
     image = models.ImageField(blank=True, upload_to='images/')
     stock = models.PositiveIntegerField()
 
+
     # required
 
     is_available = models.BooleanField(default=True)
     is_active = models.BooleanField(default=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now_add=True)
-    review = models.ForeignKey(Review, on_delete=models.CASCADE, null=True)
+    review=models.ForeignKey(Review, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name_plural = 'Products'
