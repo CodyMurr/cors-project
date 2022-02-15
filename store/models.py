@@ -23,7 +23,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     description = models.TextField(blank=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.FloatField()
     image = models.ImageField(blank=True, upload_to='images/')
     stock = models.PositiveIntegerField()
 
