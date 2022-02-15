@@ -9,7 +9,7 @@ def home(request):
 def about(request):
     return render(request, 'store/about.html')
 
-# placed here temporarily until order, store, category app are created
+# placed here temporarily until order category app are created
 
 
 def cart(request):
