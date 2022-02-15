@@ -1,5 +1,5 @@
 from unittest import skip
-from django.test import TestCase, RequestFactory, Client
+from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from store.models import Category, Product
 from django.urls import reverse
