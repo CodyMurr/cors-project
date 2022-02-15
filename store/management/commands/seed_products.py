@@ -38,11 +38,11 @@ class Command(BaseCommand):
         for i in get_products():
             detail = product_detail(i["productId"], i["currentSku"]["skuId"])
             product = Product(
-                product_name = detail["brand"]["displayName"],
+                name = detail["brand"]["displayName"],
                 slug = detail["brand"]["displayName"],
                 description = detail["quickLookDescription"],
                 price = float(detail["currentSku"]["listPrice"][1:]),
-                product_images = detail["currentSku"]["skuImages"]["image135"],
+                image = detail["currentSku"]["skuImages"]["image135"],
                 stock = 100,
                 category = Category(name=detail["parentCategory"]["parentCategory"]["displayName"], slug=detail["parentCategory"]["parentCategory"]["displayName"])
             )   
