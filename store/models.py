@@ -12,14 +12,6 @@ RATING = (
 )
 
 
-class Review(models.Model):
-    account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    rating = models.CharField(choices=RATING, max_length=10, default=5)
-    subject = models.CharField(max_length=100, null=True)
-    content = models.TextField(max_length=300, null=True)
-
-    def __str__(self):
-        return self.subject
 
 
 class Product(models.Model):
@@ -36,7 +28,6 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now_add=True)
-    review = models.ForeignKey(Review, on_delete=models.CASCADE, null=True)
 
     class Meta:
         verbose_name_plural = 'Products'
@@ -65,3 +56,13 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+class Review(models.Model):
+    account = models.ForeignKey(Account, on_delete=models.CASCADE)
+    rating = models.CharField(choices=RATING, max_length=10, default=5)
+    subject = models.CharField(max_length=100, null=True)
+    content = models.TextField(max_length=300, null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
+
+    def __str__(self):
+        return self.subject
