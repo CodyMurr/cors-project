@@ -48,7 +48,7 @@ def all_products(request, category_slug=None):
         'products': products,
         'product_count': product_count,
     }
-    return render(request, 'store/home.html', context)
+    return render(request, 'store/products/index.html', context)
 
 
 def category_list(request, category_slug):

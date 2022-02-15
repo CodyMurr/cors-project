@@ -1,0 +1,21 @@
+{% extends '../base.html' %}
+
+{% block content %}
+
+{% for i in products %}
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-product-grid">
+                <a href="{{ product.get_absolute_url }}" class="img-wrap"> <img src="{{ i.image }}"> </a>
+                <figcaption class="info-wrap">
+                    <a class="text-dark text-decoration-none title" href="{{ product.get_absolute_url }}">{{ i.name  }}</a>
+                    <div class="price mt-1">${{ i.price }}0</div>
+                </figcaption>
+            </div>
+        </div>
+    </div>
+    
+{% endfor %}
+
+{% endblock %}
