@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 from accounts.models import Account
-
 # Create your models here.
 
 RATING=(
@@ -25,6 +24,7 @@ class Product(models.Model):
     price = models.FloatField()
     image = models.ImageField(blank=True, upload_to='images/')
     stock = models.PositiveIntegerField()
+
 
     # required
 
