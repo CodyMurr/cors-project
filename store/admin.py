@@ -10,8 +10,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['product_name', 'description', 'price',
+    list_display = ['name', 'description', 'price',
                     'stock', 'is_available', 'created_date', 'modified_date']
     list_filter = ['is_available', 'is_active']
     list_filter = ['price', 'is_available']
-    prepopulated_fields = {'slug': ('product_name',)}
+    prepopulated_fields = {'slug': ('name',)}
