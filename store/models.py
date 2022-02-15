@@ -59,7 +59,7 @@ class Category(models.Model):
 
 class Review(models.Model):
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
-    rating = models.CharField(choices=RATING, max_length=10, default=5)
+    rating = models.FloatField(choices=RATING, max_length=10, default=5)
     subject = models.CharField(max_length=100, null=True)
     content = models.TextField(max_length=300, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE, null=True)
