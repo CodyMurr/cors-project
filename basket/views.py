@@ -19,7 +19,7 @@ def cart_add(request, id):
         product = Product.objects.get(id=product_id)
         # product = get_object_or_404(Product, id=product_id)
     cart.add(product=product, qty=product_qty)
-    response = JsonResponse({'test': 'data'})
+    response = JsonResponse({'qty': product_qty})
     return redirect("home")
 
 
