@@ -19,7 +19,8 @@ def product_detail(request, slug):
 
 
 def products_all(request):
-    return render(request, 'store/products/products_all.html', {'products_all': products_all})
+    products = Product.objects.all()
+    return render(request, 'store/products/products_all.html', {'products': products})
 
 
 def about(request):
