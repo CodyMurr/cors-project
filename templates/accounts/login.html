@@ -7,7 +7,7 @@
 
     <div class="container mx-auto alert alert-info text-center mt-4" role="alert" style="max-width: 60vmin;>
         Hello beautiful. Thank you for registering with us. We have sent you a verification email to your email address [{{ request.GET.email }}]
-        <br><br> Sign in for a rejuvanating experience! <a href="{% url 'login' %}">Login</a>
+        <br><br> Sign in for a rejuvanating experience! <a href="{% url 'accounts:login' %}">Login</a>
     </div>
 
     {% else %}
@@ -17,7 +17,7 @@
         <div class="card-body">
             <h4 class="card-title mb-4">Sign in</h4>
             {% include 'store/includes/alerts.html' %}
-            <form action="{% url 'login' %}" method="POST">
+            <form action="{% url 'accounts:login' %}" method="POST">
                 {% csrf_token %}
                 <div class="form-group">
                     <input type="email" class="form-control" placeholder="Email Address" name="email">
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="form-group">
-                    <a href="{% url 'forgetPassword' %}" id="forgotcolor"class="float-right">Forgot password?</a>
+                    <a href="{% url 'accounts:forgetPassword' %}" class="float-right">Forgot password?</a>
 
                 </div>
                 <div class="form-group">
@@ -37,8 +37,8 @@
             </form>
         </div>
     </div>
+    <p class="text-center mt-4">Need an account? <a href="{% url 'accounts:signup' %}">Sign up</a></p>
 
-    <p class="text-center mt-4">Need an account? <a href="{% url 'signup' %}" id="logincolor">Sign up</a></p>
     <br><br> {% endif %}
 
 </div>

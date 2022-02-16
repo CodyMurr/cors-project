@@ -19,10 +19,6 @@ from django.core.mail import EmailMessage
 import requests
 
 
-def home(request):
-    return render(request, 'store/home.html')
-
-
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -99,7 +95,7 @@ def login(request):
         else:
             messages.error(request, 'Invalid login credentials')
             return redirect('login')
-    return render(request, 'accounts/login.html')
+    return render(request, 'accounts/login.html', {'login': login})
 
 
 @login_required
