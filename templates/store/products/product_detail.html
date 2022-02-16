@@ -34,7 +34,8 @@
 
                             </div>
                             <div class="col-6 text-end">
-<a href="{% url 'cart_add' product.id %}" type="button" id="add-button" value="{{ product.id }}" class="btn btn-dark text-white btn-sm">Add to basket</a>
+                                <a href=type="button" id="add-button" value="{{ product.id }}"
+                                    class="btn btn-dark text-white btn-sm">Add to basket</a>
                             </div>
                         </div>
                     </div>
@@ -45,12 +46,12 @@
 
 </div>
 
-<script>
+<!-- <script>
     $(document).on('click', '#add-button', function(e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: {% url 'basket:basket_add' %},
+            url: 
             data: {
                 productid: $('#add-button').val(),
                 productqty: $('#select option:selected').text(),
@@ -63,8 +64,23 @@
             error: function(xhr, errmsg, err) {}
         });
     })
-</script>
+</script> -->
 
-
+<section class="reviews">
+    <h2>Reviews</h2>
+    <div class="reviews-container">
+        <div class="review">
+            <span class="username">User name</span>
+            <br>
+            <span class="rating">Rating</span>
+            <p class="review-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis beatae ex
+                similique error molestias omnis consequatur obcaecati quo corrupti! Quos asperiores maiores, quae
+                dolorum iste consequuntur impedit cupiditate minima eveniet.
+                Quam maxime, expedita quaerat eius cum praesentium suscipit perferendis doloribus assumenda delectus
+                ullam nisi voluptatem minima, modi distinctio a quas. Dolorem consectetur neque aut suscipit labore
+                delectus consequuntur quos aspernatur.</p>
+        </div>
+    </div>
+</section>
 
 {% endblock %}
