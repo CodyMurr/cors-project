@@ -40,8 +40,7 @@ img {
    display: block;
     margin-left: auto;
     margin-right: auto 
-}
-       
+}    
 
 footer {
   position: relative;
@@ -52,9 +51,7 @@ footer {
  color: black; 
 }
       
-
 footer.page-footer {
   padding-top: 0;
   text-align: right;
 } 
-
