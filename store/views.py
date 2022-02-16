@@ -1,14 +1,9 @@
-import django
 from django.shortcuts import render, get_object_or_404
 from .models import Category, Product
 from django.core.paginator import Paginator
-from django.views.generic import DetailView
+
 
 # Create your views here.
-
-
-# def about(request):
-#     return render(request, 'store/about.html')
 
 
 def base(request):
@@ -16,17 +11,11 @@ def base(request):
 
 
 def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug)
-    return render(request, 'store/products/product_detail.html', {'product': product})
+    product = get_object_or_404(Product, slug=slug, is_available=True)
+    return render(request, 'store/products/detail.html', {'product': product})
 
 
-def categories(request):
-    return {
-        'categories': Category.objects.all()
-    }
-
-
-def all_products(request, category_slug=None):
+def products_all(request, category_slug=None):
     categories = None
     products = None
 
@@ -46,10 +35,20 @@ def all_products(request, category_slug=None):
         product_count = products.count()
 
     context = {
-        'products': products,
+        'products': paged_products,
         'product_count': product_count,
     }
-    return render(request, 'store/products/index.html', context)
+    return render(request, 'store/products/products_all.html', context)
+
+
+def categories(request):
+    return {
+        'categories': Category.objects.all()
+    }
+
+
+def about(request):
+    return render(request, 'store/about.html')
 
 
 def category_list(request, category_slug):

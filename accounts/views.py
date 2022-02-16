@@ -19,10 +19,6 @@ from django.core.mail import EmailMessage
 import requests
 
 
-def home(request):
-    return render(request, 'store/home.html')
-
-
 def signup(request):
     error_message = ''
     if request.method == 'POST':

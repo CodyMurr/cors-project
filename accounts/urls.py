@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'accounts'
+
 urlpatterns = [
     path('dasboard/', views.dashboard, name='dashboard'),
     path('signup/', views.signup, name='signup'),
@@ -9,5 +11,4 @@ urlpatterns = [
     path('activate/<uidb64>/<token>/', views.activate, name='activate'),
     path('forgetPassword/', views.forgetPassword, name='forgetPassword'),
     path('resetPassword/', views.resetPassword, name='resetPassword'),
-    path('home/', views.home, name='home'),
 ]

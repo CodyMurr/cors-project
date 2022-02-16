@@ -36,6 +36,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'accounts',
     'store',
+    'basket',
+    # 'order',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -68,12 +70,15 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'store.views.categories',
+                'basket.context_processors.cart_total_amount'
             ],
         },
     },
 ]
 
 WSGI_APPLICATION = 'cors.wsgi.application'
+
+CART_SESSION_ID = 'kart'
 
 
 # Database
