@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect
+from django.http import JsonResponse
+from django.shortcuts import get_object_or_404, render, redirect
 from store.models import Product
 from django.contrib.auth.decorators import login_required
-from cart.cart import Cart
+from .basket import Basket
 
 
 @login_required(login_url="/accounts/login")
@@ -11,15 +12,19 @@ def basket_summary(request):
 
 @login_required(login_url="/accounts/login")
 def cart_add(request, id):
-    cart = Cart(request)
-    product = Product.objects.get(id=id)
+    cart = Basket(request)
+    if request.POST.get('action') == 'POST':
+        product_id = int(request.POST.get('productid'))
+        product = Product.objects.get(id=product_id)
+        # product = get_object_or_404(Product, id=product_id)
     cart.add(product=product)
+    response = JsonResponse
     return redirect("home")
 
 
 @login_required(login_url="/accounts/login")
 def item_clear(request, id):
-    cart = Cart(request)
+    cart = Basket(request)
     product = Product.objects.get(id=id)
     cart.remove(product)
     return redirect("cart_detail")
@@ -27,7 +32,7 @@ def item_clear(request, id):
 
 @login_required(login_url="/accounts/login")
 def item_increment(request, id):
-    cart = Cart(request)
+    cart = Basket(request)
     product = Product.objects.get(id=id)
     cart.add(product=product)
     return redirect("cart_detail")
@@ -35,7 +40,7 @@ def item_increment(request, id):
 
 @login_required(login_url="/accounts/login")
 def item_decrement(request, id):
-    cart = Cart(request)
+    cart = Basket(request)
     product = Product.objects.get(id=id)
     cart.decrement(product=product)
     return redirect("cart_detail")
@@ -43,7 +48,7 @@ def item_decrement(request, id):
 
 @login_required(login_url="/accounts/login")
 def cart_clear(request):
-    cart = Cart(request)
+    cart = Basket(request)
     cart.clear()
     return redirect("cart_detail")
 
