@@ -13,10 +13,13 @@
                 {% endfor %}
             </ul>
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% if nbar == 'store' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'home' %}">SHOP</a>
+                </li>
                 <li class="nav-item {% if nbar == 'about' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
                 </li>
-                 <li class="nav-item {% if nbar == 'about' %}active{% endif %}">
+                 <li class="nav-item {% if nbar == 'search' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'search' %}">SEARCH</a>
                 </li>
             </ul>

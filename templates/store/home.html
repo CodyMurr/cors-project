@@ -1,9 +1,17 @@
 {% extends './base.html' %} {% load static %} {% block content %}
 
+
+<img src="https://i.imgur.com/Av938ti.png" title="source: imgur.com"  width="1350px" height="640px" align="center"/>
+<img src="https://i.imgur.com/Dy3Xd6o.png" title="source: imgur.com" />
+<img src="https://i.imgur.com/rIqQYaX.png" title="source: imgur.com" width="1350px" height="640px"/>
+
 <section class="section-intro padding-y-sm">
     <div class="container">
         <div class="intro-banner-wrap">
-            <img src="{% static 'images/banners/1.png' %}" class="img-fluid rounded">
+         <video muted="" loop="" autoplay="" preload="auto" width="100%" height="100%" playsinline="true" webkit-playsinline="true" data-setup="{&quot;width&quot;: 300, &quot;height&quot;: 250}" class="responsive-iframe">
+            <source src="https://cdn.shopify.com/s/files/1/0100/9257/6804/files/d-hp-brand-statement-bg-1320x200.mp4?v=1642581919" type="video/mp4">
+          </video>
+
         </div>
     </div>
 </section>
@@ -11,15 +19,14 @@
 <section class="section-name padding-y-sm">
     <div class="container">
         <header class="section-heading">
-            <a href="{% url 'all_products' %}" class="btn btn-outline-dark float-right">See all</a>
-            <h3 class="section-title">Popular products</h3>
+            <a href="{% url 'all_products' %}" class="btn btn-outline-dark float-right">Shop All</a>
+            <h3 class="section-title">SHOP FEATURED PRODUCTS</h3>
         </header>
     </div>
 </section>
 
+<img src="https://i.imgur.com/zrIQHud.png" title="source: imgur.com" />
+
 {% endblock %}
 
-<img src="https://i.imgur.com/Av938ti.png" title="source: imgur.com"  width="1350px" height="640px" align="center"/></a>
-<img src="https://i.imgur.com/Dy3Xd6o.png" title="source: imgur.com" /></a>
-<img src="https://i.imgur.com/rIqQYaX.png" title="source: imgur.com" width="1350px" height="640px"/></a>
-<img src="https://i.imgur.com/zrIQHud.png" title="source: imgur.com" /></a>
+
