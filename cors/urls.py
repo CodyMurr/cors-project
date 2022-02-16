@@ -22,16 +22,10 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('accounts.urls')),
-    path('store/', include('store.urls')),
-    # delete when order/cart app created
-    path('', views.home, name='home'),
-    path('about/', views.about, name='about'),
-    path('cart/', views.cart, name='cart'),
-    # delete when search is created
-    path('search/', views.search, name='search'),
-    # delete when category app created
-    path('category/', views.category, name='category'),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
+    path('', include('store.urls', namespace='store')),
+    path('basket/', include('basket.urls', namespace='basket')),
+    path('order/', include('order.urls', namespace='order')),
 ]
 
 if settings.DEBUG:
