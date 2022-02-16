@@ -5,7 +5,6 @@
 	<nav class="navbar navbar-expand-lg" id="navcolor">
         <div class="collapse navbar-collapse" id="navbarColor02">
             <ul class = "dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="">SHOP</a></li>
                 {% for c in category %}
                 <li>
                     <a class="dropdown-item" href="{{ c.get_absolute_url }}">{{ c.name }}</a>
@@ -14,7 +13,7 @@
             </ul>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {% if nbar == 'store' %}active{% endif %}">
-                    <a class="nav-link" href="{% url 'category' %}">SHOP</a>
+                    <a class="nav-link" href="{% url 'store:products_all' %}">SHOP</a>
                 </li>
                 <li class="nav-item {% if nbar == 'about' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'store:about' %}">ABOUT</a>
@@ -23,10 +22,6 @@
                     <a class="nav-link" href="{% url 'accounts:login' %}">LOGIN</a>
                 </li>
                 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-               <form class="example" action="action_page.php">
-                <input type="text" placeholder="" name="search">
-                 <button type="submit" id="btnsearch"><i class="fa fa-search"></i></button>
-                 </form>
             </ul>
             <a href="/store/home.html" class="navbar-brand navbar inner href navbar-center nav-link" style="transform: translateX(-50%); left: 50%; position: absolute;" id="centerlogo">&nbsp;&nbsp;CORS</a>
 
