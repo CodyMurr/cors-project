@@ -12,28 +12,28 @@
                 {% csrf_token %}
                 <div class="form-row">
                     <div class="col form-group">
-                        <label>First name</label> {{ form.first_name }}
+                        <label></label> {{ form.first_name }}
                     </div>
                     <div class="col form-group">
-                        <label>Last name</label> {{ form.last_name }}
+                        <label></label> {{ form.last_name }}
                     </div>
                 </div>
 
 
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>Email Address</label> {{form.email}}
+                        <label></label> {{form.email}}
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Phone Number</label> {{form.phone_number}}
+                        <label></label> {{form.phone_number}}
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label>Create password</label> {{ form.password }}
+                        <label></label> {{ form.password }}
                     </div>
                     <div class="form-group col-md-6">
-                        <label>Repeat password</label> {{form.confirm_password}}
+                        <label></label> {{form.confirm_password}}
                     </div>
                 </div>
                 <div class="form-group">
@@ -44,7 +44,7 @@
 
             </div>
         </div>
-        <p class="text-center mt-4">Have an account? <a href="{% url 'login' %}">Log In</a></p>
+        <p class="text-center mt-4">Have an account? <a href="{% url 'login' %}" id="linkcolor">Log In</a></p>
         <br><br>
     </div>
     {% endblock %}

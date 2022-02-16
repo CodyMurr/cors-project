@@ -13,12 +13,20 @@
                 {% endfor %}
             </ul>
             <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% if nbar == 'store' %}active{% endif %}">
+                    <a class="nav-link" href="{% url 'category' %}">SHOP</a>
+                </li>
                 <li class="nav-item {% if nbar == 'about' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'store:about' %}">ABOUT</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:login' %}">LOGIN</a>
                 </li>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+               <form class="example" action="action_page.php">
+                <input type="text" placeholder="" name="search">
+                 <button type="submit" id="btnsearch"><i class="fa fa-search"></i></button>
+                 </form>
             </ul>
             <a href="/store/home.html" class="navbar-brand navbar inner href navbar-center nav-link" style="transform: translateX(-50%); left: 50%; position: absolute;" id="centerlogo">&nbsp;&nbsp;CORS</a>
 

@@ -14,6 +14,14 @@ main {
   flex: 1 0 auto;
 }
 
+img {
+   display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+/* <-----NAVBAR-----> */
+
 #navcolor {
   background-color: white !important;
 }
@@ -25,7 +33,6 @@ main {
   
   
 }
-
 .navbar-nav {
   font-family: 'Roboto', sans-serif !important;
   font-size: small !important;
@@ -36,12 +43,46 @@ main {
   color: #000 !important;
        }
 
+<<<<<<< HEAD
 img {
    display: block;
     margin-left: auto;
     margin-right: auto 
 }    
+=======
+       /* for adding margin to search bar */
+.example { 
+  margin-top: 4.5px;
+>>>>>>> main
 
+}
+
+#btnsearch {
+    border: none;
+}
+button-solid:focus {
+    border: none;
+    outline: none;
+}
+
+
+/* <-----LOG IN ------> */
+#logincolor {
+  color: gray !important;
+}
+
+#forgotcolor {
+  color: gray !important;
+}
+
+/* <----- SIGN UP ----> */
+
+#linkcolor {
+  color: gray !important;
+ }
+
+       
+/* <----FOOTER ---> */
 footer {
   position: relative;
 }
@@ -54,4 +95,10 @@ footer {
 footer.page-footer {
   padding-top: 0;
   text-align: right;
+<<<<<<< HEAD
 } 
+=======
+} 
+
+
+>>>>>>> main
