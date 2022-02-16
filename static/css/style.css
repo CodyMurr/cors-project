@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   
 }
-
 .color {
   background-color: #F9F6F1;
 }
@@ -13,35 +14,47 @@ main {
   flex: 1 0 auto;
 }
 
-footer.page-footer {
-  padding-top: 0;
-  text-align: right;
-}
-
 #navcolor {
   background-color: white !important;
 }
 
-
-.navbar-brand .navbar-inner {
-    text-align: center;
+#centerlogo {
+  font-size: 1.5rem !important;
+  color: black !important;
+  justify-content: center;
+  
+  
 }
 
-.navbar.brand .navbar-inner .nav {
-    display:inline-block;
-    float: none;
-}
-
-
-nav ul text {
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.navbar-nav {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: small !important;
+  margin-left: 20px;
+  margin-right: 10px;
 }
 .nav-link {
   color: #000 !important;
        }
+
+img {
+   display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
        
+
 footer {
+  position: relative;
+}
+
+#footcolor {
  background-color: #D1C0A8 !important;
- color: #000 !important;
-}	
+ color: black; 
+}
       
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+} 
+
