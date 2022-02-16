@@ -14,6 +14,14 @@ main {
   flex: 1 0 auto;
 }
 
+img {
+   display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+/* <-----NAVBAR-----> */
+
 #navcolor {
   background-color: white !important;
 }
@@ -25,7 +33,6 @@ main {
   
   
 }
-
 .navbar-nav {
   font-family: 'Roboto', sans-serif !important;
   font-size: small !important;
@@ -36,13 +43,38 @@ main {
   color: #000 !important;
        }
 
-img {
-   display: block;
-    margin-left: auto;
-    margin-right: auto 
-}
-       
+       /* for adding margin to search bar */
+.example { 
+  margin-top: 4.5px;
 
+}
+
+#btnsearch {
+    border: none;
+}
+button-solid:focus {
+    border: none;
+    outline: none;
+}
+
+
+/* <-----LOG IN ------> */
+#logincolor {
+  color: gray !important;
+}
+
+#forgotcolor {
+  color: gray !important;
+}
+
+/* <----- SIGN UP ----> */
+
+#linkcolor {
+  color: gray !important;
+ }
+
+       
+/* <----FOOTER ---> */
 footer {
   position: relative;
 }
@@ -58,23 +90,4 @@ footer.page-footer {
   text-align: right;
 } 
 
-#background-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-}
-
-@media (max-width: 750px) {
-    #background-video { display: none; }
-    body {
-      background: url("https://assets.codepen.io/6093409/river.jpg") no-repeat;
-      background-size: cover;
-    }
-}
 
