@@ -43,9 +43,17 @@ img {
   color: #000 !important;
        }
 
+<<<<<<< HEAD
+img {
+   display: block;
+    margin-left: auto;
+    margin-right: auto 
+}    
+=======
        /* for adding margin to search bar */
 .example { 
   margin-top: 4.5px;
+>>>>>>> main
 
 }
 
@@ -84,10 +92,13 @@ footer {
  color: black; 
 }
       
-
 footer.page-footer {
   padding-top: 0;
   text-align: right;
+<<<<<<< HEAD
+} 
+=======
 } 
 
 
+>>>>>>> main

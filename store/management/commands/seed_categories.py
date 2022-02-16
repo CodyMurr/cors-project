@@ -24,11 +24,11 @@ def clear_data():
 
 class Command(BaseCommand):
     def handle(self, *args, **options):
-        # for i in categories:
-        #     category = Category(
-        #         name = i,
-        #         slug = i
-        #     )
-        #     category.save()
-        clear_data()
+        for i in categories:
+            category = Category(
+                name = i,
+                slug = i
+            )
+            category.save()
+        # clear_data()
         self.stdout.write(self.style.SUCCESS("Complete"))

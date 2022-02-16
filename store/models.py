@@ -3,7 +3,6 @@ from django.urls import reverse
 from accounts.models import Account
 # Create your models here.
 
-
 class Category(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255)
@@ -17,10 +16,8 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-
 class Product(models.Model):
-    category = models.ForeignKey(
-        Category, related_name='product', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
     description = models.TextField(blank=True)
@@ -47,6 +44,7 @@ class Product(models.Model):
 
     REQUIRED_FIELDS = ['category', 'name',
                        'description', 'price', 'image', 'slug']
+
 
 
 class Review(models.Model):

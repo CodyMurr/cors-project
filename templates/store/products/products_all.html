@@ -4,9 +4,9 @@
 <title>{% block title %}SHOP ALL{% endblock %}</title>
 {% block content %}
 
+<section id="product-index">
 {% for i in products %}
-
-    <div class="row">
+    <div id="product" class="row">
         <div class="col-md-3">
             <div class="card card-product-grid">
                 <a href="{% url 'product_detail' i.slug %}" class="img-wrap"> <img src="{{ i.image }}"> </a>
@@ -17,8 +17,8 @@
             </div>
         </div>
     </div>
-
 {% endfor %}
+</section>
 
 {% endblock %}
 {% include './includes/footer.html' %}
