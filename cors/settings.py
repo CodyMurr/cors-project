@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 """
 
+import django_on_heroku
 from pathlib import Path
 import os
 from dotenv import load_dotenv
@@ -139,3 +140,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'accounts.Account'
+
+django_on_heroku.settings(locals())
