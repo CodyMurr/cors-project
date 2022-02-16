@@ -13,12 +13,13 @@ def basket_summary(request):
 @login_required(login_url="/accounts/login")
 def cart_add(request, id):
     cart = Basket(request)
-    if request.POST.get('action') == 'POST':
+    if request.POST.get('action') == 'post':
         product_id = int(request.POST.get('productid'))
+        product_qty = int(request.POST.get('productqty'))
         product = Product.objects.get(id=product_id)
         # product = get_object_or_404(Product, id=product_id)
-    cart.add(product=product)
-    response = JsonResponse
+    cart.add(product=product, qty=product_qty)
+    response = JsonResponse({'test': 'data'})
     return redirect("home")
 
 
