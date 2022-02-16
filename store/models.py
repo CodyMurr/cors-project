@@ -3,17 +3,6 @@ from django.urls import reverse
 from accounts.models import Account
 # Create your models here.
 
-RATING = (
-    (1, '1'),
-    (2, '2'),
-    (3, '3'),
-    (4, '4'),
-    (5, '5'),
-)
-
-
-
-
 class Product(models.Model):
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255)
@@ -34,7 +23,7 @@ class Product(models.Model):
         ordering = ('-created_date',)
 
     def get_absolute_url(self):
-        return reverse("store:product_detail", args=[self.slug])
+        return reverse("store:product_detail", kwargs={'slug': self.slug})
 
     def __str__(self):
         return self.name

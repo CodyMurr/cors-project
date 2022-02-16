@@ -39,7 +39,7 @@ class Command(BaseCommand):
             detail = product_detail(i["productId"], i["currentSku"]["skuId"])
             product = Product(
                 name = detail["brand"]["displayName"],
-                slug = detail["brand"]["displayName"],
+                slug = detail["productId"],
                 description = detail["quickLookDescription"],
                 price = float(detail["currentSku"]["listPrice"][1:]),
                 image = detail["currentSku"]["skuImages"]["image135"],
