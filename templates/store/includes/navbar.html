@@ -14,7 +14,7 @@
             </ul>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item {% if nbar == 'store' %}active{% endif %}">
-                    <a class="nav-link" href="{% url 'category' %}">SHOP</a>
+                    <a class="nav-link" href="{% url 'store:products_all' %}">SHOP</a>
                 </li>
                 <li class="nav-item {% if nbar == 'about' %}active{% endif %}">
                     <a class="nav-link" href="{% url 'store:about' %}">ABOUT</a>
