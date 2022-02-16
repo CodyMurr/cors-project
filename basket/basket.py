@@ -23,3 +23,9 @@ class Basket():
                 product.price), 'qty': int(qty)}
 
         self.session.modified = True
+
+    def __len__(self):
+        """
+        Get the basket data and count the qty of items
+        """
+        return sum(item['qty'] for item in self.basket.values())
