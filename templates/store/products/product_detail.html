@@ -1,3 +1,5 @@
+
+
 {% extends "store/base.html" %}
 {% load static %}
 {% block title %}
@@ -13,8 +15,8 @@
             <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
                 <h1 class="mb-0 h4">{{ product.name }}</h1>
                 <p><span class="lead">{{ product.description }}</span> </p>
-                <p>{{ product.description|slice:":355" }}...</p>
-                <p>Slug {{ product.slug }}</p>
+                {% comment %} <p>{{ product.description|slice:":355" }}...</p> {% endcomment %}
+                <p>Product # {{ product.slug }}</p>
                 <div class="border">
                     <div class="col border-bottom">
                         <div class="row p-3">
@@ -27,16 +29,14 @@
                             <div class="col-6">
                                 <label for="select">Qty</label>
                                 <select id="select">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                    <option value="">4</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
                                 </select>
-
                             </div>
                             <div class="col-6 text-end">
-<a href="{% url 'basket:basket_add' product.id %}" type="button" id="add-button" value="{{ product.id }}" class="btn btn-dark text-white btn-sm">Add to basket</a>
-
+                                <button type="button" value="{{ product.id }}" class="btn btn-dark text-white btn-sm add-button">Add to basket</button>
                             </div>
                         </div>
                     </div>
@@ -48,26 +48,26 @@
 </div>
 
 <script>
-    $(document).on('click', '#add-button', function(e) {
+    $(document).on('click', '.add-button', function (e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: "{% url 'basket:basket_add' product.id %}",
+            url: '{% url "basket:basket_add" product.id %}',
             data: {
                 productid: $('#add-button').val(),
                 productqty: $('#select option:selected').text(),
                 csrfmiddlewaretoken: "{{csrf_token}}",
                 action: 'post'
             },
-            success: function(json) {
-                document.getElementById('basket-qty').innerHTML = json.qty;
+            success: function (json) {
+               document.getElementById("basket-qty").innerHTML = json.qty
             },
-            error: function(xhr, errmsg, err) {}
+            error: function (xhr, errmsg, err) {}
         });
     })
 </script>
 
-{% comment %} <section class="reviews">
+<section class="reviews">
     <h2>Reviews</h2>
     <div class="reviews-container">
         <div class="review">
@@ -82,16 +82,14 @@
                 ullam nisi voluptatem minima, modi distinctio a quas. Dolorem consectetur neque aut suscipit labore
                 delectus consequuntur quos aspernatur.</p>
         </div>
-    </div> {% endcomment %}
+    </div>
 
     <div class="add-review">
         <h3>Add Review</h3>
         <form action="/product/{{ product.slug }}/add_review/" method="POST">
         {% csrf_token %}
         {{ review_form.as_p }}
-        {% comment %} <input value="Add" type="submit" class="btn"> {% endcomment %}
-        <button id="reviewbtn">Submit Review</button>
-        
+        <input value="Add Review" type="submit" class="btn">
     </form>
     </div>
 </section>
