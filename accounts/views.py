@@ -91,7 +91,8 @@ def login(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'You are now logged in.')
-            url = request.META.get('HTTP_REFERER')
+            # url = request.META.get('HTTP_REFERER')
+            return redirect('store:home')
         else:
             messages.error(request, 'Invalid login credentials')
             return redirect('login')

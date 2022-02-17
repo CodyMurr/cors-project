@@ -43,14 +43,13 @@ def nav_category_list(request, category_slug):
     products = Product.objects.filter(category=category)
     return render(request, 'store/includes/navbar.html', {'category': category, 'products': products})
 
-class ReviewCreate(CreateView):
-    model = Review
-    fields = ['rating', 'subject', 'content']
 
-def add_review(request, product_slug):
+def add_review(request, slug):
     form = ReviewForm(request.POST)
     if form.is_valid():
+        product = Product.objects.get(slug=slug)
         new_review = form.save(commit=False)
-        new_review.product_slug = product_slug
+        new_review.product = product
+        new_review.account = request.user
         new_review.save()
-    return redirect('product_detail', product_slug=product_slug)
+    return redirect('store:product_detail', slug=slug)
