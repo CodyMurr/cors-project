@@ -15,7 +15,7 @@ def home(request):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, is_available=True)
-    return render(request, 'store/products/detail.html', {'product': product})
+    return render(request, 'store/products/product_detail.html', {'product': product})
 
 
 def products_all(request):
