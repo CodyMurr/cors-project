@@ -70,8 +70,8 @@ img {
 
 .collection-sort {
   /* display: flex; */
-  flex-direction: row;
-} 
+  /* flex-direction: row; */
+}
 
 /* @media (max-width: 480px) {
   .product-filter {
@@ -90,20 +90,20 @@ img {
 }   */
 
 .products {
-  display: flex;
-  flex-wrap: wrap;
-}
-.product-card {
-  padding: 2%;
-  flex-grow: 1;
-  flex-basis: 16%;
+  /* display: flex; */
 
-  display: flex;
-  /* so child elements can use flexbox stuff too! */
+/* column-gap: 10px;
+row-gap: 1em; */
+
 }
+
+.product-card {
+  padding: 3%;
+ }
 
 .product-info {
-  margin-top: auto;
+  /* margin-left: 20px;  */
+  background-color: lightgrey;
 }
 
 @media (max-width: 920px) {
@@ -126,8 +126,9 @@ img {
 /* for adding margin to search bar */
 .example {
   margin-top: 4.5px;
-} 
- #btnsearch {
+}
+
+#btnsearch {
   border: none;
 }
 
@@ -164,6 +165,16 @@ button-solid:focus {
   margin-left: 68px;
 }
 
+#revtitle {
+  margin-left: 40px;
+  color: gray;
+
+}
+
+#revh6 {
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
 
 /* <----FOOTER ---> */
 footer {

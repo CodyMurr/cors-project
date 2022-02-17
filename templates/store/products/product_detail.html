@@ -67,6 +67,7 @@
     })
 </script>
 
+
 <section class="reviews">
     <h2>Reviews</h2>
     {% for review in product.review_set.all %}
@@ -81,12 +82,14 @@
     </div>
     {% endfor %}
 
+
     <div class="add-review">
-        <h3>Add Review</h3>
+        <h3 id="revtitle">Reviews<h3>
+        <h6 id="revh6">Add Review</h6>
         <form action="/product/{{ product.slug }}/add_review/" method="POST">
         {% csrf_token %}
         {{ review_form.as_p }}
-        <input value="Add Review" type="submit" class="btn">
+         <button id="reviewbtn">Add Review</button>
     </form>
     </div>
 </section>
