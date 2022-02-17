@@ -7,7 +7,7 @@
 
 <nav class="product-filter">
 
-  <h1>Shop All Products</h1>
+  {% comment %} <h1>Shop All Products</h1>
 
   <div class="sort">
 
@@ -25,19 +25,19 @@
       </select>
     </div>
 
-  </div>
+  </div> {% endcomment %}
   
   <section id="product-index" class="products">
 {% for i in products %}
     <div id="product" class="row product-card">
-        <div class="col-md-3 product-image">
+       
             <div class="card card-product-grid">
                 <a href="{% url 'store:product_detail' i.slug %}" class="img-wrap"> <img src="{{ i.image }}"> </a>
-                <figcaption class="info-wrap products product-info">
+                <figcaption>
                     <a class="text-dark text-decoration-none title" href="{% url 'store:product_detail' i.slug %}">{{ i.name }}</a>
                     <div class="price mt-1">${{ i.price }}0</div>
                 </figcaption>
-            </div>
+          
         </div>
     </div>
 {% endfor %}
