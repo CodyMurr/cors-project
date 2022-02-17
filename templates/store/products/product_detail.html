@@ -70,6 +70,7 @@
     <h2>Reviews</h2>
     <div class="reviews-container">
         <div class="review">
+            <h5 class="review-subject">The best!</h5>
             <span class="username">User name</span>
             <br>
             <span class="rating">Rating</span>
@@ -80,6 +81,14 @@
                 ullam nisi voluptatem minima, modi distinctio a quas. Dolorem consectetur neque aut suscipit labore
                 delectus consequuntur quos aspernatur.</p>
         </div>
+    </div>
+
+    <div class="add-review">
+        <form action="{% url 'add_review' product.slug %}" method="POST">
+        {% csrf_token %}
+        {{ review_form.as_p }}
+        <input value="Add Review" type="submit" class="btn">
+    </form>
     </div>
 </section>
 
