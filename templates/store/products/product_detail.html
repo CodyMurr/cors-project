@@ -69,20 +69,17 @@
 
 <section class="reviews">
     <h2>Reviews</h2>
+    {% for review in product.review_set.all %}
     <div class="reviews-container">
         <div class="review">
-            <h5 class="review-subject">The best!</h5>
-            <span class="username">User name</span>
+            <h5 class="review-subject">{{ review.subject }}</h5>
+            <span class="username">{{ review.account.username }}</span>
             <br>
-            <span class="rating">Rating</span>
-            <p class="review-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis beatae ex
-                similique error molestias omnis consequatur obcaecati quo corrupti! Quos asperiores maiores, quae
-                dolorum iste consequuntur impedit cupiditate minima eveniet.
-                Quam maxime, expedita quaerat eius cum praesentium suscipit perferendis doloribus assumenda delectus
-                ullam nisi voluptatem minima, modi distinctio a quas. Dolorem consectetur neque aut suscipit labore
-                delectus consequuntur quos aspernatur.</p>
+            <span class="rating">{{ review.rating }}</span>
+            <p class="review-content">{{ review.content }}</p>
         </div>
     </div>
+    {% endfor %}
 
     <div class="add-review">
         <h3>Add Review</h3>
