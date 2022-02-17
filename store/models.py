@@ -3,6 +3,12 @@ from django.urls import reverse
 from accounts.models import Account
 # Create your models here.
 
+
+class ProductManager(models.Manager):
+    def get_queryset(self):
+        return super(ProductManager, self).get_queryset().filter(is_active=True)
+
+
 class Category(models.Model):
     name = models.CharField(max_length=255, db_index=True)
     slug = models.SlugField(max_length=255)
@@ -15,6 +21,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
@@ -44,7 +51,6 @@ class Product(models.Model):
 
     REQUIRED_FIELDS = ['category', 'name',
                        'description', 'price', 'image', 'slug']
-
 
 
 class Review(models.Model):
