@@ -1,3 +1,7 @@
+{% extends "store/base.html" %}
+
+{% block content %}
+
 {% if order.is_paid %}
 
     <h1>Order Detail</h1>
@@ -34,3 +38,4 @@
 
 {% endif %}
 
+{% endblock %}
