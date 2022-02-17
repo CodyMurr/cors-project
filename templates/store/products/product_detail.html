@@ -67,7 +67,7 @@
     })
 </script>
 
-<section class="reviews">
+{% comment %} <section class="reviews">
     <h2>Reviews</h2>
     <div class="reviews-container">
         <div class="review">
@@ -82,14 +82,16 @@
                 ullam nisi voluptatem minima, modi distinctio a quas. Dolorem consectetur neque aut suscipit labore
                 delectus consequuntur quos aspernatur.</p>
         </div>
-    </div>
+    </div> {% endcomment %}
 
     <div class="add-review">
         <h3>Add Review</h3>
         <form action="/product/{{ product.slug }}/add_review/" method="POST">
         {% csrf_token %}
         {{ review_form.as_p }}
-        <input value="Add Review" type="submit" class="btn">
+        {% comment %} <input value="Add" type="submit" class="btn"> {% endcomment %}
+        <button id="reviewbtn">Submit Review</button>
+        
     </form>
     </div>
 </section>

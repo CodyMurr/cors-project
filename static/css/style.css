@@ -152,6 +152,18 @@ button-solid:focus {
   color: gray !important;
 }
 
+/* <-----Reviews-----> */
+
+.add-review {
+  margin-top: 40px;
+  margin-left: 140px;
+  margin-bottom: 50px;
+}
+
+#reviewbtn {
+  margin-left: 68px;
+}
+
 
 /* <----FOOTER ---> */
 footer {
