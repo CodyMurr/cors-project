@@ -4,8 +4,9 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  
+
 }
+
 .color {
   background-color: #F9F6F1;
 }
@@ -14,11 +15,6 @@ main {
   flex: 1 0 auto;
 }
 
-img {
-   display: block;
-    margin-left: auto;
-    margin-right: auto 
-}
 
 /* <-----NAVBAR-----> */
 
@@ -30,39 +26,114 @@ img {
   font-size: 1.5rem !important;
   color: black !important;
   justify-content: center;
-  
-  
+
+
 }
+
 .navbar-nav {
   font-family: 'Roboto', sans-serif !important;
   font-size: small !important;
   margin-left: 20px;
   margin-right: 10px;
 }
+
 .nav-link {
   color: #000 !important;
-       }
+}
 
-<<<<<<< HEAD
+/* <-----HOME----> */
+
+
 img {
-   display: block;
-    margin-left: auto;
-    margin-right: auto 
-}    
-=======
-       /* for adding margin to search bar */
-.example { 
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+
+#prodtitle {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+/* <------SHOP PRODUCTS------> */
+/* .product-filter {
+  display: flex;
+} 
+
+.product-filter h1 {
+  flex-grow: 1;
+} */
+
+/* .sort {
+  display: flex;
+} */
+
+.collection-sort {
+  /* display: flex; */
+  flex-direction: row;
+} 
+
+/* @media (max-width: 480px) {
+  .product-filter {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-filter {
+    flex-direction: column;
+  }
+
+  .sort {
+    align-self: flex-start;
+  }
+}   */
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+}
+.product-card {
+  padding: 2%;
+  flex-grow: 1;
+  flex-basis: 16%;
+
+  display: flex;
+  /* so child elements can use flexbox stuff too! */
+}
+
+.product-info {
+  margin-top: auto;
+}
+
+@media (max-width: 920px) {
+  .product-card {
+    flex: 1 21%;
+  }
+}
+
+
+
+@media (max-width: 600px) {
+  .product-card {
+    flex: 1 46%;
+  }
+}
+
+
+
+/* <-------SEARCH BAR-----> */
+/* for adding margin to search bar */
+.example {
   margin-top: 4.5px;
->>>>>>> main
-
+} 
+ #btnsearch {
+  border: none;
 }
 
-#btnsearch {
-    border: none;
-}
 button-solid:focus {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 
@@ -79,26 +150,33 @@ button-solid:focus {
 
 #linkcolor {
   color: gray !important;
- }
+}
 
-       
+/* <-----Reviews-----> */
+
+.add-review {
+  margin-top: 40px;
+  margin-left: 140px;
+  margin-bottom: 50px;
+}
+
+#reviewbtn {
+  margin-left: 68px;
+}
+
+
 /* <----FOOTER ---> */
 footer {
-  position: relative;
+  position: relative !important;
+
 }
 
 #footcolor {
- background-color: #D1C0A8 !important;
- color: black; 
+  background-color: #D1C0A8 !important;
+  color: black;
 }
-      
+
 footer.page-footer {
   padding-top: 0;
-  text-align: right;
-<<<<<<< HEAD
-} 
-=======
-} 
-
-
->>>>>>> main
+  text-align: center;
+}
