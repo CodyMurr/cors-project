@@ -90,21 +90,20 @@ img {
 }   */
 
 .products {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+
+/* column-gap: 10px;
+row-gap: 1em; */
+
 }
 
 .product-card {
   padding: 3%;
-  /* flex-grow: 1; */
-  /* flex-basis: 16%; */
-
-  display: flex;
-  /* so child elements can use flexbox stuff too! */
-}
+ }
 
 .product-info {
-  margin-top: auto;
+  /* margin-left: 20px;  */
+  background-color: lightgrey;
 }
 
 @media (max-width: 920px) {
