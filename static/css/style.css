@@ -4,8 +4,9 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  
+
 }
+
 .color {
   background-color: #F9F6F1;
 }
@@ -15,9 +16,9 @@ main {
 }
 
 img {
-   display: block;
-    margin-left: auto;
-    margin-right: auto 
+  display: block;
+  margin-left: auto;
+  margin-right: auto
 }
 
 /* <-----NAVBAR-----> */
@@ -30,39 +31,47 @@ img {
   font-size: 1.5rem !important;
   color: black !important;
   justify-content: center;
-  
-  
+
+
 }
+
 .navbar-nav {
   font-family: 'Roboto', sans-serif !important;
   font-size: small !important;
   margin-left: 20px;
   margin-right: 10px;
 }
+
 .nav-link {
   color: #000 !important;
-       }
-
-<<<<<<< HEAD
-img {
-   display: block;
-    margin-left: auto;
-    margin-right: auto 
-}    
-=======
-       /* for adding margin to search bar */
-.example { 
-  margin-top: 4.5px;
->>>>>>> main
-
 }
+
+/* <-----HOME----> */
+
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+/* for adding margin to search bar */
+.example {
+  margin-top: 4.5px;
+}
+
+#prodtitle {
+  font-family: 'Roboto', sans-serif !important;
+}
+
 
 #btnsearch {
-    border: none;
+  border: none;
 }
+
 button-solid:focus {
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 
@@ -79,26 +88,20 @@ button-solid:focus {
 
 #linkcolor {
   color: gray !important;
- }
+}
 
-       
+
 /* <----FOOTER ---> */
 footer {
   position: relative;
 }
 
 #footcolor {
- background-color: #D1C0A8 !important;
- color: black; 
+  background-color: #D1C0A8 !important;
+  color: black;
 }
-      
+
 footer.page-footer {
   padding-top: 0;
   text-align: right;
-<<<<<<< HEAD
-} 
-=======
-} 
-
-
->>>>>>> main
+}
