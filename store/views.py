@@ -1,6 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Category, Product
+from dataclasses import field
+from pickle import FALSE
+from django.shortcuts import redirect, render, get_object_or_404
+from .models import Category, Product, Review
+from django.views.generic.edit import CreateView
 from django.core.paginator import Paginator
+from .forms import ReviewForm
 
 # Create your views here.
 
@@ -15,7 +19,8 @@ def home(request):
 
 def product_detail(request, slug):
     product = get_object_or_404(Product, slug=slug, is_available=True)
-    return render(request, 'store/products/product_detail.html', {'product': product})
+    review_form = ReviewForm()
+    return render(request, 'store/products/product_detail.html', {'product': product, 'review_form': review_form})
 
 
 def products_all(request):
@@ -37,3 +42,14 @@ def nav_category_list(request, category_slug):
     category = get_object_or_404(Category, slug=category_slug)
     products = Product.objects.filter(category=category)
     return render(request, 'store/includes/navbar.html', {'category': category, 'products': products})
+
+
+def add_review(request, slug):
+    form = ReviewForm(request.POST)
+    if form.is_valid():
+        product = Product.objects.get(slug=slug)
+        new_review = form.save(commit=False)
+        new_review.product = product
+        new_review.account = request.user
+        new_review.save()
+    return redirect('store:product_detail', slug=slug)
