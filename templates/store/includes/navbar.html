@@ -23,9 +23,15 @@
             <a href="/" class="navbar-brand navbar inner href navbar-center nav-link" style="transform: translateX(-50%); left: 50%; position: absolute;" id="centerlogo">&nbsp;&nbsp;CORS</a>
             
             <ul class="nav navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:logout' %}">LOGOUT</a>
+                </li>
+            {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:login' %}">LOGIN</a>
                 </li>
+            {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'basket:basket_summary' %}">
                         YOUR BAG - 
