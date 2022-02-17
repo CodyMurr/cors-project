@@ -1,5 +1,3 @@
-
-
 {% extends "store/base.html" %}
 {% load static %}
 {% block title %}
@@ -36,7 +34,11 @@
                                 </select>
                             </div>
                             <div class="col-6 text-end">
-                                <button type="button" value="{{ product.id }}" class="btn btn-dark text-white btn-sm add-button">Add to basket</button>
+                                <form action="{% url 'order:add_to_cart' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-dark text-white btn-sm add-button">Add to
+                                        basket</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -47,7 +49,7 @@
 
 </div>
 
-<script>
+<!-- <script>
     $(document).on('click', '.add-button', function (e) {
         e.preventDefault();
         $.ajax({
@@ -60,23 +62,23 @@
                 action: 'post'
             },
             success: function (json) {
-               document.getElementById("basket-qty").innerHTML = json.qty
+                document.getElementById("basket-qty").innerHTML = json.qty
             },
-            error: function (xhr, errmsg, err) {}
+            error: function (xhr, errmsg, err) { }
         });
     })
-</script>
+</script> -->
 
 
-    <div class="add-review">
-        <h3 id="revtitle">Reviews<h3>
-        <h6 id="revh6">Add Review</h6>
-        <form action="/product/{{ product.slug }}/add_review/" method="POST">
-        {% csrf_token %}
-        {{ review_form.as_p }}
-         <button id="reviewbtn">Add Review</button>
-    </form>
-    </div>
+<div class="add-review">
+    <h3 id="revtitle">Reviews<h3>
+            <h6 id="revh6">Add Review</h6>
+            <form action="/product/{{ product.slug }}/add_review/" method="POST">
+                {% csrf_token %}
+                {{ review_form.as_p }}
+                <button id="reviewbtn">Add Review</button>
+            </form>
+</div>
 </section>
 
 {% endblock %}
