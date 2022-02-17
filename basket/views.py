@@ -14,6 +14,7 @@ def basket_summary(request):
 
 @login_required(login_url="/accounts/login")
 def basket_add(request):
+    print('Basket add ran')
     basket = Basket(request)
     if request.POST.get('action') == 'post':
         product_id = int(request.POST.get('productid'))
