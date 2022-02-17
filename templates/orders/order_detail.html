@@ -1,2 +1,36 @@
-<h1>Order Detail</h1>
-<p>{{ order.order_number }}</p>
+{% if order.is_paid %}
+
+    <h1>Order Detail</h1>
+
+{% else %}
+
+    <h1>Basket Details</h1>
+
+{% endif %}
+
+    <p>{{ order.order_number }}</p>
+
+{% for product in order.products.all %}
+<div>
+    <p>{{ product.name }}</p>
+    <p>{{ product.category }}</p>
+    <p>{{ product.description }}</p>
+    <p>{{ product.price }}</p>
+</div>
+{% endfor %}
+
+{% if order.is_paid %}
+<div>
+    <p>Order is paid</p>
+</div>
+
+{% else %}
+
+<form action="{% url 'order:checkout' %}" method="POST">
+    {% csrf_token %}
+    
+    <button type="submit">Checkout</button>
+</form>
+
+{% endif %}
+
