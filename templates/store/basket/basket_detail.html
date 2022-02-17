@@ -1,10 +1,10 @@
-{% load cart_tag %}
+{% load basket_tag %}
 
-Total Length :: {{request.session.cart|length}}
+Total Length :: {{request.session.basket|length}}
 
 Cart Detail:
 
-{% for key,value in request.session.cart.items %}
+{% for key,value in request.session.basket.items %}
 {{value.name}} {{value.price}} {{value.quantity}} {{value.image}} Total {{ value.price|multiply:value.quantity }}
 
 {% endfor %}

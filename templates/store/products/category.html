@@ -22,7 +22,7 @@
                             </div>
                                 <p class="text-muted">{{ i.price }}</p>
                         </div>
-                        <a href="{% url 'cart_add' product.id %}" type="button" class="btn btn-dark text-white btn-sm">Add to basket</a>
+                        <a href="{% url 'basket:basket_add' product.id %}" type="button" class="btn btn-dark text-white btn-sm">Add to basket</a>
                     </div>
                 </div>
     

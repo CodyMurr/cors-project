@@ -79,13 +79,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'cors.wsgi.application'
 
-CART_SESSION_ID = 'kart'
-
 
 # Database
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
-DB_NAME = os.environ['DB_NAME'] 
+DB_NAME = os.environ['DB_NAME']
 DB_HOST = os.environ['DB_HOST']
 DB_USER = os.environ['DB_USER']
 DB_PASS = os.environ['DB_PASS']
