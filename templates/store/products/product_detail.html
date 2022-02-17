@@ -67,29 +67,14 @@
     })
 </script>
 
-<section class="reviews">
-    <h2>Reviews</h2>
-    <div class="reviews-container">
-        <div class="review">
-            <h5 class="review-subject">The best!</h5>
-            <span class="username">User name</span>
-            <br>
-            <span class="rating">Rating</span>
-            <p class="review-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis beatae ex
-                similique error molestias omnis consequatur obcaecati quo corrupti! Quos asperiores maiores, quae
-                dolorum iste consequuntur impedit cupiditate minima eveniet.
-                Quam maxime, expedita quaerat eius cum praesentium suscipit perferendis doloribus assumenda delectus
-                ullam nisi voluptatem minima, modi distinctio a quas. Dolorem consectetur neque aut suscipit labore
-                delectus consequuntur quos aspernatur.</p>
-        </div>
-    </div>
 
     <div class="add-review">
-        <h3>Add Review</h3>
+        <h3 id="revtitle">Reviews<h3>
+        <h6 id="revh6">Add Review</h6>
         <form action="/product/{{ product.slug }}/add_review/" method="POST">
         {% csrf_token %}
         {{ review_form.as_p }}
-        <input value="Add Review" type="submit" class="btn">
+         <button id="reviewbtn">Add Review</button>
     </form>
     </div>
 </section>
