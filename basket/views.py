@@ -2,7 +2,7 @@ from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from store.models import Product
 from django.contrib.auth.decorators import login_required
-from .basket import Basket
+from .models import Basket
 
 
 @login_required(login_url="/accounts/login")
@@ -11,49 +11,48 @@ def basket_summary(request):
 
 
 @login_required(login_url="/accounts/login")
-def cart_add(request, id):
-    cart = Basket(request)
+def basket_add(request, id):
+    basket = Basket(request)
     if request.POST.get('action') == 'post':
         product_id = int(request.POST.get('productid'))
         product_qty = int(request.POST.get('productqty'))
-        product = Product.objects.get(id=product_id)
-        # product = get_object_or_404(Product, id=product_id)
-    cart.add(product=product, qty=product_qty)
+        product = get_object_or_404(Product, id=product_id)
+    basket.add(product=product, qty=product_qty)
     response = JsonResponse({'qty': product_qty})
-    return redirect("home")
+    return response
 
 
 @login_required(login_url="/accounts/login")
 def item_clear(request, id):
-    cart = Basket(request)
+    basket = Basket(request)
     product = Product.objects.get(id=id)
-    cart.remove(product)
-    return redirect("cart_detail")
+    basket.remove(product)
+    return redirect("basket_detail")
 
 
 @login_required(login_url="/accounts/login")
 def item_increment(request, id):
-    cart = Basket(request)
+    basket = Basket(request)
     product = Product.objects.get(id=id)
-    cart.add(product=product)
-    return redirect("cart_detail")
+    basket.add(product=product)
+    return redirect("basket_detail")
 
 
 @login_required(login_url="/accounts/login")
 def item_decrement(request, id):
-    cart = Basket(request)
+    basket = Basket(request)
     product = Product.objects.get(id=id)
-    cart.decrement(product=product)
-    return redirect("cart_detail")
+    basket.decrement(product=product)
+    return redirect("basket_detail")
 
 
 @login_required(login_url="/accounts/login")
-def cart_clear(request):
-    cart = Basket(request)
-    cart.clear()
-    return redirect("cart_detail")
+def basket_clear(request):
+    basket = Basket(request)
+    basket.clear()
+    return redirect("basket_detail")
 
 
 @login_required(login_url="/accounts/login")
-def cart_detail(request):
-    return render(request, 'cart/cart_detail.html')
+def basket_detail(request):
+    return render(request, 'basket/basket_detail.html')

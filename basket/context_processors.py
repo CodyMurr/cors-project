@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .basket import Basket
+from .models import Basket
 
 
 def basket(request):
@@ -7,4 +7,4 @@ def basket(request):
 
 
 def cart_total_amount(request):
-    return render(request, 'store/basket/cart_total_amount.html')
+    return render(request, 'store/basket/basket_total_amount.html')
