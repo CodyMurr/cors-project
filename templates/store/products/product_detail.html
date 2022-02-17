@@ -25,17 +25,17 @@
                     <div class="col">
                         <div class="row p-3">
                             <div class="col-6">
-                                <label for="select">Qty</label>
-                                <select id="select">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                </select>
                             </div>
                             <div class="col-6 text-end">
-                                <form action="{% url 'order:add_to_cart' product.id %}" method="POST">
+                                <form action="{% url 'order:add_to_cart' product.id  %}" method="POST">
                                     {% csrf_token %}
+                                    <label for="select">Qty</label>
+                                    <select id="select" name="qty">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                    </select>
                                     <button type="submit" class="btn btn-dark text-white btn-sm add-button">Add to
                                         basket</button>
                                 </form>
@@ -53,25 +53,25 @@
     <h2>Reviews</h2>
 
     {% for review in product.review_set.all %}
-        <div class="reviews-container">
-            <div class="review">
-                <h5 class="review-subject">{{ review.subject }}</h5>
-                <span class="username">{{ review.account.username }}</span>
-                <br>
-                <span class="rating">{{ review.rating }}</span>
-                <p class="review-content">{{ review.content }}</p>
-            </div>
+    <div class="reviews-container">
+        <div class="review">
+            <h5 class="review-subject">{{ review.subject }}</h5>
+            <span class="username">{{ review.account.username }}</span>
+            <br>
+            <span class="rating">{{ review.rating }}</span>
+            <p class="review-content">{{ review.content }}</p>
         </div>
+    </div>
     {% endfor %}
 
     <div class="add-review">
         <h3 id="revtitle">Reviews<h3>
-        <h6 id="revh6">Add Review</h6>
-        <form action="/product/{{ product.slug }}/add_review/" method="POST">
-        {% csrf_token %}
-        {{ review_form.as_p }}
-         <button id="reviewbtn">Add Review</button>
-    </form>
+                <h6 id="revh6">Add Review</h6>
+                <form action="/product/{{ product.slug }}/add_review/" method="POST">
+                    {% csrf_token %}
+                    {{ review_form.as_p }}
+                    <button id="reviewbtn">Add Review</button>
+                </form>
     </div>
 
 </section>

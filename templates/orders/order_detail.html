@@ -4,22 +4,23 @@
 
 {% if order.is_paid %}
 
-    <h1>Order Detail</h1>
+<h1>Order Detail</h1>
 
 {% else %}
 
-    <h1>Basket Details</h1>
+<h1>Basket Details</h1>
 
 {% endif %}
 
-    <p>{{ order.order_number }}</p>
+<p>{{ order.order_number }}</p>
 
-{% for product in order.products.all %}
+{% for lineItem in order.lineitem_set.all %}
 <div>
-    <p>{{ product.name }}</p>
-    <p>{{ product.category }}</p>
-    <p>{{ product.description }}</p>
-    <p>{{ product.price }}</p>
+    <p>QTY {{ lineItem.qty }}</p>
+    <p>{{ lineItem.product.name }}</p>
+    <p>{{ lineItem.product.category }}</p>
+    <p>{{ lineItem.product.description }}</p>
+    <p>{{ lineItem.product.price }}</p>
 </div>
 {% endfor %}
 
@@ -32,7 +33,7 @@
 
 <form action="{% url 'order:checkout' %}" method="POST">
     {% csrf_token %}
-    
+
     <button type="submit">Checkout</button>
 </form>
 

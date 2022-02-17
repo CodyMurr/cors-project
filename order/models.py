@@ -5,7 +5,6 @@ import uuid
 
 # Create your models here.
 
-
 class Order(models.Model):
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     order_number = models.CharField(max_length=20, null=True, blank=True)
@@ -14,7 +13,6 @@ class Order(models.Model):
     status = models.CharField(max_length=30, null=True, blank=True)
     is_ordered = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    products = models.ManyToManyField(Product)
     is_paid = models.BooleanField(default=False)
 
     def __str__(self):
@@ -27,3 +25,9 @@ class Order(models.Model):
         except:
             cart = cls.objects.create(user=user, order_number=uuid.uuid4().hex[:8])
         return cart
+
+        
+class LineItem(models.Model):
+    order = models.ForeignKey(Order, on_delete=models.CASCADE)
+    qty = models.IntegerField()
+    product = models.OneToOneField(Product, on_delete=models.CASCADE)

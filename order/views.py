@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def add_to_cart(request, product_id):
     cart = Order.get_cart(request.user)
-    cart.products.add(product_id)
+    cart.lineitem_set.create(qty=request.POST['qty'], product_id=product_id)
     return redirect('order:order_detail', order_id=cart.id)
 
 @login_required
