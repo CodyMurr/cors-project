@@ -35,10 +35,6 @@
 
                             </div>
                             <div class="col-6 text-end">
-
-                                <a href=type="button" id="add-button" value="{{ product.id }}"
-                                    class="btn btn-dark text-white btn-sm">Add to basket</a>
-
 <a href="{% url 'basket:basket_add' product.id %}" type="button" id="add-button" value="{{ product.id }}" class="btn btn-dark text-white btn-sm">Add to basket</a>
 
                             </div>
@@ -51,12 +47,12 @@
 
 </div>
 
-<!-- <script>
+<script>
     $(document).on('click', '#add-button', function(e) {
         e.preventDefault();
         $.ajax({
             type: 'POST',
-            url: 
+            url: "{% url 'basket:basket_add' product.id %}",
             data: {
                 productid: $('#add-button').val(),
                 productqty: $('#select option:selected').text(),
@@ -69,7 +65,7 @@
             error: function(xhr, errmsg, err) {}
         });
     })
-</script> -->
+</script>
 
 <section class="reviews">
     <h2>Reviews</h2>
