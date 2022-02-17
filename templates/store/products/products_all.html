@@ -4,10 +4,12 @@
 <title>{% block title %}SHOP ALL{% endblock %}</title>
 {% block content %}
 
-<section id="product-index">
+
+
+<section id="product-index" class="products">
 {% for i in products %}
-    <div id="product" class="row">
-        <div class="col-md-3">
+    <div id="product" class="row product-card">
+        <div class="col-md-3 product-image">
             <div class="card card-product-grid">
                 <a href="{% url 'store:product_detail' i.slug %}" class="img-wrap"> <img src="{{ i.image }}"> </a>
                 <figcaption class="info-wrap">
