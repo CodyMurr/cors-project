@@ -1,9 +1,9 @@
 {% extends '../base.html' %}
 {% include './includes/navbar.html' %}
 
+
 <title>{% block title %}SHOP ALL{% endblock %}</title>
 {% block content %}
-
 
 <nav class="product-filter">
 
@@ -26,10 +26,8 @@
     </div>
 
   </div>
-
   
-
-<section id="product-index" class="products">
+  <section id="product-index" class="products">
 {% for i in products %}
     <div id="product" class="row product-card">
         <div class="col-md-3 product-image">
