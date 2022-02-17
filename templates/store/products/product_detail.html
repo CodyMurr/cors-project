@@ -1,5 +1,3 @@
-
-
 {% extends "store/base.html" %}
 {% load static %}
 {% block title %}
@@ -36,7 +34,11 @@
                                 </select>
                             </div>
                             <div class="col-6 text-end">
-                                <button type="button" value="{{ product.id }}" class="btn btn-dark text-white btn-sm add-button">Add to basket</button>
+                                <form action="{% url 'order:add_to_cart' product.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn btn-dark text-white btn-sm add-button">Add to
+                                        basket</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -47,41 +49,20 @@
 
 </div>
 
-<script>
-    $(document).on('click', '.add-button', function (e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: '{% url "basket:basket_add" product.id %}',
-            data: {
-                productid: $('#add-button').val(),
-                productqty: $('#select option:selected').text(),
-                csrfmiddlewaretoken: "{{csrf_token}}",
-                action: 'post'
-            },
-            success: function (json) {
-               document.getElementById("basket-qty").innerHTML = json.qty
-            },
-            error: function (xhr, errmsg, err) {}
-        });
-    })
-</script>
-
-
 <section class="reviews">
     <h2>Reviews</h2>
-    {% for review in product.review_set.all %}
-    <div class="reviews-container">
-        <div class="review">
-            <h5 class="review-subject">{{ review.subject }}</h5>
-            <span class="username">{{ review.account.username }}</span>
-            <br>
-            <span class="rating">{{ review.rating }}</span>
-            <p class="review-content">{{ review.content }}</p>
-        </div>
-    </div>
-    {% endfor %}
 
+    {% for review in product.review_set.all %}
+        <div class="reviews-container">
+            <div class="review">
+                <h5 class="review-subject">{{ review.subject }}</h5>
+                <span class="username">{{ review.account.username }}</span>
+                <br>
+                <span class="rating">{{ review.rating }}</span>
+                <p class="review-content">{{ review.content }}</p>
+            </div>
+        </div>
+    {% endfor %}
 
     <div class="add-review">
         <h3 id="revtitle">Reviews<h3>
@@ -92,6 +73,7 @@
          <button id="reviewbtn">Add Review</button>
     </form>
     </div>
+
 </section>
 
 {% endblock %}
