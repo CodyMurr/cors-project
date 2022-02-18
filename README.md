@@ -43,7 +43,7 @@ A full-CRUD web app to allow users to have a customized shopping experience. The
 [Click Here](https://trello.com/b/rd2WZL7x/project-3)
 
 # ***Pitch Deck***
-[Click Here](https://www.canva.com/design/DAE3W6dPHCM/xZyJcJZDsK1VzsKKbfzFug/edit?layoutQuery=pitch+deck+presentations)
+[Click Here](https://www.canva.com/design/DAE3W6dPHCM/BMjkzg8OYnMWDuMl0Lm7EQ/view?utm_content=DAE3W6dPHCM&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu)
 
 # Project Link #
 
