@@ -118,8 +118,8 @@ img {
 /* <-------Product Details------> */
 
 .container-color {
-  background-color: #faf0e6;
-  margin-bottom: 20%;
+  background-color: #faf0e6 !important;
+
 }
 
 .card-color {
@@ -130,13 +130,16 @@ img {
   text-decoration: underline solid black 1px;
 }
 
+#margincard {
+  margin-top: 10%;
+}
 
 /* <-----Reviews-----> */
 
 .add-review {
   margin-top: 40px;
   margin-left: 10%;
-  margin-bottom: 15%;
+  margin-bottom: 7%;
 }
 
 
@@ -159,7 +162,6 @@ img {
 
 
 #revsec {
-  margin-top: 5%;
   margin-left: 10%;
   color: gray;
 }
@@ -167,8 +169,8 @@ img {
 .sectionrev {
   margin-top: 2%;
   margin-left: 10%;
-  margin-bottom: 13%;
   display: flex;
+  margin-bottom: 15%;
 }
 
 /* <----FOOTER ---> */
