@@ -1,11 +1,11 @@
 # ***CORS***
-A e-commerce site to find your favorite skincare products
-Rejuvinate the shopping experience
+CORS is an e-commerce website that helps users find the best skincare products.
+Rejuvenate your shopping experience!
 
 
 ## ***About***
 
-a full-CRUD web app to allow users to have a customized shopping experience. The site generates the best and most popular skincare products. 
+A full-CRUD web app to allow users to have a customized shopping experience. The site generates the best and most popular skincare products. 
 
 
 
@@ -14,20 +14,20 @@ a full-CRUD web app to allow users to have a customized shopping experience. The
 
 
 # ***Home***
-![]()
+![](<img src="https://i.imgur.com/LTSjKjk.png">)
 
 
 
 
 # ***About***
 
-![]()
+![](<img src="https://i.imgur.com/OpQU032.png">)
 
 
 
 # ***Products***
 
-![]()
+![](<img src="https://i.imgur.com/tmkd3UQ.png">)
 
 # ***Technologies Used***
 
@@ -37,7 +37,6 @@ a full-CRUD web app to allow users to have a customized shopping experience. The
 * Python
 * Django
 * jQuery
-* AWS
 * Heroku Deployment
 
 # ***Trello Board***
@@ -48,7 +47,7 @@ a full-CRUD web app to allow users to have a customized shopping experience. The
 
 # Project Link #
 
-[Click Here]()
+[Click Here](https://cors-sei.herokuapp.com/)
 
 
 # Next Steps #
