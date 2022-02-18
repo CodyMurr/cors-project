@@ -102,7 +102,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You are logged out.')
-    return redirect('login')
+    return redirect('/')
 
 
 def activate(request, uidb64, token):
