@@ -91,6 +91,12 @@ img {
 }
 
 /* <------ORDERS------> */
+/* <-------Product Details------> */
+
+.container-color {
+  background-color: #faf0e6;
+}
+
 
 .btn {
   text-decoration: underline solid black 1px;
