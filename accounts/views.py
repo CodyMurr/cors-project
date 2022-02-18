@@ -62,13 +62,13 @@ def signup(request):
             send_email = EmailMessage(mail_subject, msg, to=[to_email])
             send_email.send()
             # This is how we log a user in via code
-            return redirect('/accounts/login/?command=verification&email='+email)
+            return redirect('login')
         else:
             error_message = 'Invalid sign up - try again'
     # A bad POST or a GET request, so render signup.html with an empty form
     form = SignupForm()
     context = {'form': form, 'error_message': error_message}
-    return render(request, 'accounts/signup.html', context)
+    return redirect('login')
 
 
 Account = get_user_model()
@@ -102,7 +102,7 @@ def login(request):
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You are logged out.')
-    return redirect('login')
+    return redirect('/')
 
 
 def activate(request, uidb64, token):
