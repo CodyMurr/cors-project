@@ -5,15 +5,16 @@
 
 {% if order.is_paid %}
 
-<h1>Order Detail</h1>
+<h1 class="titleorder">Order Detail</h1>
 
 {% else %}
 
-<h1>Cart Details</h1>
+<h1 class="titlecart">Cart Details</h1>
+
 
 {% endif %}
 
-<div class="container">
+<div class="container container-color">
     <main class="pt-5">
         <div class="row g-3">
             <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
@@ -45,10 +46,9 @@
                     <form action="{% url 'order:checkout' %}" method="POST">
                         {% csrf_token %}
 
-                    <button type="submit">Checkout</button>
+                    <button type="submit" id="cartbtn">Checkout</button>
                     </form>
-                
-             
+
                     <a class="btn" href="{% url 'store:products_all' %}">Keep Shopping</a>
 
                     {% endif %}
