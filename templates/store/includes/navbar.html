@@ -33,7 +33,10 @@
                 </li>
             {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'order:checkout' %}">CART</a>
+                    <a class="nav-link" href="{% url 'order:find_cart' %}">CART</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'order:get_orders' %}">ORDERS</a>
                 </li>
             </ul>
         </div>

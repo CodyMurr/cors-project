@@ -1,0 +1,19 @@
+{% extends "store/base.html" %}
+{% block content %}
+{% for order in orders %}
+<div>
+    <p>{{ order.order_number }}</p>
+    <p>Total Price ${{ order.get_order_total }}0</p>
+
+    {% for lineItem in order.lineitem_set.all %}
+
+    <p>{{ lineItem.product.name }} Quantity:<span>{{ lineItem.qty }}</span></p> 
+    
+    <p>${{ lineItem.product.price }}0</p>
+
+    {% endfor %}
+
+</div>
+{% endfor %}
+
+{% endblock %}
