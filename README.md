@@ -14,20 +14,20 @@ A full-CRUD web app to allow users to have a customized shopping experience. The
 
 
 # ***Home***
-![](<img src="https://i.imgur.com/LTSjKjk.png">)
+![](https://i.imgur.com/LTSjKjk.png)
 
 
 
 
 # ***About***
 
-![](<img src="https://i.imgur.com/OpQU032.png">)
+![](https://i.imgur.com/OpQU032.png)
 
 
 
 # ***Products***
 
-![](<img src="https://i.imgur.com/tmkd3UQ.png">)
+![](https://i.imgur.com/tmkd3UQ.png)
 
 # ***Technologies Used***
 
