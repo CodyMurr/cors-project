@@ -1,16 +1,12 @@
 {% extends "store/base.html" %}
 {% load static %}
-
 {% block content %}
-
-
-<h1>Order Detail</h1>
-
-<div class="container">
+<h1 class="titleorder">Order Detail</h1>
+<div class="container container-color">
     {% for order in orders %}
     <main class="pt-5">
         <div class="row g-3">
-            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5 card-color">
                 <div class="border">
                     <div class="col border-bottom">
                         <div class="row p-3">
@@ -31,8 +27,4 @@
     </main>
     {% endfor %}
 </div>
-
 {% endblock %}
-
-
-
