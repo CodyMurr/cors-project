@@ -21,3 +21,13 @@ def checkout(request):
     cart.save()
     return render(request, 'orders/order_detail.html', {'order': cart})
     
+@login_required    
+def find_cart(request):
+    cart = Order.get_cart(request.user)
+    return redirect('order:order_detail', order_id=cart.id)
+
+
+@login_required
+def get_orders(request):
+    orders = request.user.order_set.all()
+    return render(request, 'orders/orders_index.html', {'orders': orders})
