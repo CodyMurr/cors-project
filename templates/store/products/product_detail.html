@@ -50,11 +50,6 @@
         <p id="revtitle" class="p-2">Add reviews<p>
         <form id="add-review-form" action="/product/{{ product.slug }}/add_review/" method="POST">                {% csrf_token %}
             {% csrf_token %}
-            {{ review_form.as_p }}
-            {% comment %} <div class="form-group p-2">
-                <label class="revlabel">Review:</label>
-                <textarea class="form-control" name="text" style="width: 40vmin;" rows="2"></textarea>
-            </div>
             <div class="form-group p-2">
                 <label class="revlabel">Rating:</label>
                 <select multiple class="form-control" class="revlabel" name="rating" style="width: 40vmin;">
@@ -64,7 +59,15 @@
                     <option class="revlabel" value="2">★★☆☆☆</option>
                     <option class="revlabel" value="1">★☆☆☆☆</option>
                 </select>
-            </div> {% endcomment %}
+            </div> 
+            <div class="form-group p-2">
+                <label class="revlabel">Subject:</label>
+                <textarea class="form-control" name="subject" style="width: 40vmin;" rows="1"></textarea>
+            </div>
+            <div class="form-group p-2">
+                <label class="revlabel">Content:</label>
+                <textarea class="form-control" name="content" style="width: 40vmin;" rows="4"></textarea>
+            </div>
             <input id="reviewbtn" style="width: 25vmin; font-size: small;" type="submit" value="Add Review" class="btn btn-dark text-white btn-ms p-2">
         </form>
     </div>
@@ -100,7 +103,7 @@
                                     <p class="review-content">{{ review.content }}</p>
                                 </td>
                                 <td>
-                                        <form action="{% url 'store:review_delete' product.id %}" method="POST">
+                                        <form action="{% url 'store:review_delete' review.id %}" method="POST">
                                             {% csrf_token %}
                                             <button type="submit"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-message.png"/></button>
                                         </form>

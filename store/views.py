@@ -7,6 +7,7 @@ from django.core.paginator import Paginator
 from .forms import ReviewForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import DeleteView
+from django.urls import reverse
 
 
 # Create your views here.
@@ -60,4 +61,4 @@ def add_review(request, slug):
 
 class ReviewDelete(LoginRequiredMixin, DeleteView):
     model = Review
-    success_url = 'store:product_detail'
+    success_url = '/'
