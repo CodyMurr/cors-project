@@ -52,6 +52,7 @@ def add_review(request, slug):
     if form.is_valid():
         product = Product.objects.get(slug=slug)
         new_review = form.save(commit=False)
+        new_review.product = product
         new_review.account = request.user
         new_review.save()
     return redirect('store:product_detail', slug=slug)
