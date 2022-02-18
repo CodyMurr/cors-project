@@ -13,7 +13,6 @@
             <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
                 <h1 class="mb-0 h4">{{ product.name }}</h1>
                 <p><span class="lead">{{ product.description }}</span> </p>
-                {% comment %} <p>{{ product.description|slice:":355" }}...</p> {% endcomment %}
                 <p>Product # {{ product.slug }}</p>
                 <div class="border">
                     <div class="col border-bottom">
@@ -49,16 +48,16 @@
 </div>
  <div class="add-review">
         <h3 id="revtitle">Reviews<h3>
-                <h6 id="revh6">Add Review</h6>
+                <h6 id="revh6">Write A Review</h6>
                 <form action="/product/{{ product.slug }}/add_review/" method="POST">
                     {% csrf_token %}
                     {{ review_form.as_p }}
                     <button id="reviewbtn">Add Review</button>
                 </form>
-            </div>
-       
-            <h2 id="rev">Reviews</h2>
-
+            </div> 
+            
+<div class="revcomments">     
+        <h2 id="rev">Reviews</h2>
     {% for review in product.review_set.all %}
     <div class="reviews-container">
         <div class="review">
@@ -69,6 +68,7 @@
             <p class="review-content">{{ review.content }}</p>
         </div>
     </div>
+</div>
     {% endfor %}
 
 

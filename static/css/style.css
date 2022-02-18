@@ -16,6 +16,16 @@ main {
   flex: 1 0 auto;
 }
 
+/* <-----HOME----> */
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+
+#prodtitle {
+  font-family: 'Roboto', sans-serif !important;
+}
 
 /* <-----NAVBAR-----> */
 .navbar {
@@ -31,8 +41,6 @@ main {
   font-size: 1.5rem !important;
   color: black !important;
   justify-content: center;
-
-
 }
 
 .navbar-nav {
@@ -45,108 +53,6 @@ main {
 .nav-link {
   color: #000 !important;
 }
-
-/* <-----HOME----> */
-
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto
-}
-
-
-#prodtitle {
-  font-family: 'Roboto', sans-serif !important;
-}
-
-/* <------SHOP PRODUCTS------> */
-/* .product-filter {
-  display: flex;
-} 
-
-.product-filter h1 {
-  flex-grow: 1;
-} */
-
-/* .sort {
-  display: flex;
-} */
-
-.collection-sort {
-  /* display: flex; */
-  /* flex-direction: row; */
-}
-
-/* @media (max-width: 480px) {
-  .product-filter {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 480px) {
-  .product-filter {
-    flex-direction: column;
-  }
-
-  .sort {
-    align-self: flex-start;
-  }
-}   */
-
-.products {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 10%;
-
-
-}
-
-.product-card {
-  padding: 3%;
-  width: 30%;
-}
-
-.product-image,
-.card-product-grid {
-  width: 100%;
-  /* margin-left: 20px;  */
-  /* background-color: lightgrey; */
-}
-
-/* @media (max-width: 920px) {
-  .product-card {
-    flex: 1 21%;
-  }
-}
-
-
-
-@media (max-width: 600px) {
-  .product-card {
-    flex: 1 46%;
-  }
-} */
-
-
-
-/* <-------SEARCH BAR-----> */
-/* for adding margin to search bar */
-.example {
-  margin-top: 4.5px;
-}
-
-#btnsearch {
-  border: none;
-}
-
-button-solid:focus {
-  border: none;
-  outline: none;
-}
-
 
 /* <-----LOG IN ------> */
 #logincolor {
@@ -163,12 +69,44 @@ button-solid:focus {
   color: gray !important;
 }
 
+
+/* <------SHOP PRODUCTS------> */
+.products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10%;
+}
+
+.product-card {
+  padding: 3%;
+  width: 30%;
+}
+
+.product-image,
+.card-product-grid {
+  width: 100%;
+
+}
+
+/* <------ORDERS------> */
+
+
+
+
 /* <-----Reviews-----> */
 
 .add-review {
   margin-top: 40px;
   margin-left: 140px;
   margin-bottom: 50px;
+}
+
+.revcomments {
+  margin-left: 70px;
+  margin-bottom: 15%;
+
 }
 
 #reviewbtn {
