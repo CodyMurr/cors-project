@@ -108,12 +108,23 @@ img {
     serif;
 }
 
+#cartbtn {
+  background-color: #e8dcca;
+  border-radius: 5%;
+  color: gray;
+  margin-bottom: 20%;
+}
+
 /* <-------Product Details------> */
 
 .container-color {
   background-color: #faf0e6;
+  margin-bottom: 20%;
 }
 
+.card-color {
+  background-color: #faf0e6;
+}
 
 .btn {
   text-decoration: underline solid black 1px;
@@ -125,12 +136,15 @@ img {
 .add-review {
   margin-top: 40px;
   margin-left: 10%;
-  /* margin-bottom: 50px; */
+  margin-bottom: 15%;
 }
 
 
 #reviewbtn {
   margin-left: 68px;
+  background-color: #e8dcca;
+  border-radius: 5%;
+  color: gray;
 }
 
 #revtitle {
