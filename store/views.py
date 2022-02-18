@@ -5,6 +5,9 @@ from .models import Category, Product, Review
 from django.views.generic.edit import CreateView
 from django.core.paginator import Paginator
 from .forms import ReviewForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.edit import DeleteView
+
 
 # Create your views here.
 
@@ -49,7 +52,11 @@ def add_review(request, slug):
     if form.is_valid():
         product = Product.objects.get(slug=slug)
         new_review = form.save(commit=False)
-        new_review.product = product
         new_review.account = request.user
         new_review.save()
     return redirect('store:product_detail', slug=slug)
+
+
+class ReviewDelete(LoginRequiredMixin, DeleteView):
+    model = Review
+    success_url = 'store:product_detail'

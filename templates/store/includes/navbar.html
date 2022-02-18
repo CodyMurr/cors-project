@@ -27,17 +27,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'accounts:logout' %}">LOGOUT</a>
                 </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'accounts:login' %}">LOGIN</a>
-                </li>
-            {% endif %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'order:find_cart' %}">CART</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'order:get_orders' %}">ORDERS</a>
                 </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'accounts:login' %}">LOGIN</a>
+                </li>
+            {% endif %}
             </ul>
         </div>
     </nav>

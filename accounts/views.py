@@ -1,12 +1,10 @@
-from pyexpat import model
 from django.forms import PasswordInput
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Account, UserProfile
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login, get_user_model
-from .forms import SignupForm, UserForm, UserProfileForm
-from django.http import HttpResponse
+from django.contrib.auth import get_user_model
+from .forms import SignupForm
 
 # Verification email
 from django.contrib.sites.shortcuts import get_current_site
@@ -15,8 +13,6 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
-
-import requests
 
 
 def signup(request):
@@ -50,19 +46,11 @@ def signup(request):
             profile.save()
 
             # activate the user
-            current_site = get_current_site(request)
-            mail_subject = "Hello beautiful, activate your account"
-            msg = render_to_string('accounts/verify_email.html', {
-                'user': user,
-                'domain': current_site,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': default_token_generator.make_token(user),
-            })
-            to_email = email
-            send_email = EmailMessage(mail_subject, msg, to=[to_email])
-            send_email.send()
+            # current_site = get_current_site(request)
+
             # This is how we log a user in via code
-            return redirect('/accounts/login/?command=verification&email='+email)
+            login(request)
+            return redirect('accounts:login')
         else:
             error_message = 'Invalid sign up - try again'
     # A bad POST or a GET request, so render signup.html with an empty form

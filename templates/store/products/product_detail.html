@@ -13,7 +13,6 @@
             <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
                 <h1 class="mb-0 h4">{{ product.name }}</h1>
                 <p><span class="lead">{{ product.description }}</span> </p>
-                {% comment %} <p>{{ product.description|slice:":355" }}...</p> {% endcomment %}
                 <p>Product # {{ product.slug }}</p>
                 <div class="border">
                     <div class="col border-bottom">
@@ -39,37 +38,81 @@
                                     <button type="submit" class="btn btn-dark text-white btn-sm add-button">Add to
                                         cart</button>
                                 </form>
-                            </div>
+                            </div><br><br><br><br><br>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </main><br><br><br><br><br>
 </div>
- <div class="add-review">
-        <h3 id="revtitle">Reviews<h3>
-                <h6 id="revh6">Add Review</h6>
-                <form action="/product/{{ product.slug }}/add_review/" method="POST">
-                    {% csrf_token %}
-                    {{ review_form.as_p }}
-                    <button id="reviewbtn">Add Review</button>
-                </form>
+ <div class="add-review d-flex flex-column">
+        <p id="revtitle" class="p-2">Add reviews<p>
+        <form id="add-review-form" action="/product/{{ product.slug }}/add_review/" method="POST">                {% csrf_token %}
+            {% csrf_token %}
+            {{ review_form.as_p }}
+            {% comment %} <div class="form-group p-2">
+                <label class="revlabel">Review:</label>
+                <textarea class="form-control" name="text" style="width: 40vmin;" rows="2"></textarea>
             </div>
+            <div class="form-group p-2">
+                <label class="revlabel">Rating:</label>
+                <select multiple class="form-control" class="revlabel" name="rating" style="width: 40vmin;">
+                    <option class="revlabel" value="5">★★★★★</option>
+                    <option class="revlabel" value="4">★★★★☆</option>
+                    <option class="revlabel" value="3">★★★☆☆</option>
+                    <option class="revlabel" value="2">★★☆☆☆</option>
+                    <option class="revlabel" value="1">★☆☆☆☆</option>
+                </select>
+            </div> {% endcomment %}
+            <input id="reviewbtn" style="width: 25vmin; font-size: small;" type="submit" value="Add Review" class="btn btn-dark text-white btn-ms p-2">
+        </form>
+    </div>
        
+    
+    
             <h2 id="rev">Reviews</h2>
 
-    {% for review in product.review_set.all %}
-    <div class="reviews-container">
-        <div class="review">
-            <h5 class="review-subject">{{ review.subject }}</h5>
-            <span class="username">{{ review.account.username }}</span>
-            <br>
-            <span class="rating">{{ review.rating }}</span>
-            <p class="review-content">{{ review.content }}</p>
-        </div>
-    </div>
-    {% endfor %}
+      
+
+    {% if products.review_set.all != 0 %}
+        <table id="reviewlayout" class="table table-hover pl-5 pb-5">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Subject</th>
+                    <th>Rating</th>
+                    <th>Content</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for review in product.review_set.all %}
+                            <tr>
+                                <td class="review-user">{{ review.account.username }}</td>
+                                <td>
+                                    <h5 class="review-subject">{{ review.subject }}</h5>
+                                </td>
+                                <td>
+                                    <p><span class="rating">{{ review.rating }}</span></p>
+                                </td>
+                                <td>
+                                    <p class="review-content">{{ review.content }}</p>
+                                </td>
+                                <td>
+                                        <form action="{% url 'store:review_delete' product.id %}" method="POST">
+                                            {% csrf_token %}
+                                            <button type="submit"><img src="https://img.icons8.com/ios-glyphs/30/000000/delete-message.png"/></button>
+                                        </form>
+                                </td>
+                            </tr>
+                            
+            </tbody>
+        </table>
+        {% empty %}
+            <h5 id="norev">No Reviews Yet</h5>
+        {% endfor %}
+    {% endif %}
 
 
 {% endblock %}

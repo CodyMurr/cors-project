@@ -1,66 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
-
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-  position: relative;
-
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    position: relative;
 }
 
 .color {
-  background-color: #F9F6F1;
+    background-color: #F9F6F1;
 }
 
 main {
-  flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 
 /* <-----NAVBAR-----> */
+
 .navbar {
-  position: absolute;
-  top: 0;
+    position: absolute;
+    top: 0;
 }
 
 #navcolor {
-  background-color: white !important;
+    background-color: white !important;
 }
 
 #centerlogo {
-  font-size: 1.5rem !important;
-  color: black !important;
-  justify-content: center;
-
-
+    font-size: 1.5rem !important;
+    color: black !important;
+    justify-content: center;
 }
 
 .navbar-nav {
-  font-family: 'Roboto', sans-serif !important;
-  font-size: small !important;
-  margin-left: 20px;
-  margin-right: 10px;
+    font-family: 'Roboto', sans-serif !important;
+    font-size: small !important;
+    margin-left: 20px;
+    margin-right: 10px;
 }
 
 .nav-link {
-  color: #000 !important;
+    color: #000 !important;
 }
+
 
 /* <-----HOME----> */
 
-
 img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 }
-
 
 #prodtitle {
-  font-family: 'Roboto', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
 }
 
+
 /* <------SHOP PRODUCTS------> */
+
+
 /* .product-filter {
   display: flex;
 } 
@@ -69,14 +68,23 @@ img {
   flex-grow: 1;
 } */
 
+
 /* .sort {
   display: flex;
 } */
 
-.collection-sort {
-  /* display: flex; */
-  /* flex-direction: row; */
-}
+
+/* .collection-sort { */
+
+
+/* display: flex; */
+
+
+/* flex-direction: row; */
+
+
+/* } */
+
 
 /* @media (max-width: 480px) {
   .product-filter {
@@ -95,26 +103,25 @@ img {
 }   */
 
 .products {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 10%;
-
-
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10%;
 }
 
 .product-card {
-  padding: 3%;
-  width: 30%;
+    padding: 3%;
+    width: 30%;
 }
 
 .product-image,
 .card-product-grid {
-  width: 100%;
-  /* margin-left: 20px;  */
-  /* background-color: lightgrey; */
+    width: 100%;
+    /* margin-left: 20px;  */
+    /* background-color: lightgrey; */
 }
+
 
 /* @media (max-width: 920px) {
   .product-card {
@@ -131,79 +138,116 @@ img {
 } */
 
 
-
 /* <-------SEARCH BAR-----> */
+
+
 /* for adding margin to search bar */
+
 .example {
-  margin-top: 4.5px;
+    margin-top: 4.5px;
 }
 
 #btnsearch {
-  border: none;
+    border: none;
 }
 
 button-solid:focus {
-  border: none;
-  outline: none;
+    border: none;
+    outline: none;
 }
 
 
 /* <-----LOG IN ------> */
+
 #logincolor {
-  color: gray !important;
+    color: gray !important;
 }
 
 #forgotcolor {
-  color: gray !important;
+    color: gray !important;
 }
+
 
 /* <----- SIGN UP ----> */
 
 #linkcolor {
-  color: gray !important;
+    color: gray !important;
 }
+
 
 /* <-----Reviews-----> */
 
 .add-review {
-  margin-top: 40px;
-  margin-left: 140px;
-  margin-bottom: 50px;
+    margin-top: 40px;
+    margin-left: 140px;
+    margin-bottom: 50px;
 }
 
 #reviewbtn {
-  margin-left: 68px;
+    margin-left: 68px;
 }
 
 #revtitle {
-  margin-left: 40px;
-  color: gray;
-
+    font-family: 'Roboto', sans-serif !important;
+    color: gray;
+    font-size: 4vmin;
 }
 
 #revh6 {
-  margin-left: 40px;
-  margin-bottom: 20px;
+    margin-left: 40px;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif !important;
 }
 
 #revh2 {
-  margin-left: 40px;
+    font-family: 'Roboto', sans-serif !important;
+    margin-left: 40px;
 }
 
-/* <----FOOTER ---> */
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+#reviewlayout {
+    margin-bottom: 40vmin;
+    margin-left: 10vmin;
+    color: gray !important;
+    font-family: 'Roboto', sans-serif !important;
+}
 
+#rev {
+    margin-top: 10vmin;
+    margin-bottom: 5vmin;
+    margin-left: 10vmin;
+    color: gray !important;
+    font-size: 4vmin;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+#norev {
+    margin-bottom: 5vmin;
+    margin-left: 10vmin;
+    color: gray !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+#revlabel {
+    margin-left: 10vmin;
+    color: gray !important;
+    font-family: 'Roboto', sans-serif !important;
+}
+
+
+/* <----FOOTER ---> */
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 #footcolor {
-  background-color: #D1C0A8 !important;
-  color: black;
+    background-color: #D1C0A8 !important;
+    color: black;
 }
 
 footer.page-footer {
-  padding-top: 0;
-  text-align: center;
+    padding-top: 0;
+    text-align: center;
 }
