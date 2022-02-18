@@ -12,31 +12,46 @@
 
 {% endif %}
 
-<p>{{ order.order_number }}</p>
+<div class="container">
+    <main class="pt-5">
+        <div class="row g-3">
+            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+                {% for lineItem in order.lineitem_set.all %}
+                <h1 class="mb-0 h4">{{ product.name }}</h1>
+                <p><span class="lead">{{ product.description }}</span> </p>
+                <div class="border">
+                    <div class="col border-bottom">
+                        <div class="row p-3">
+                            <img class="img-fluid mx-auto d-block" width="100px" alt="Responsive image" src="{{ lineItem.product.image }}">
+                            <p>Order # {{ order.order_number }}</p>
+                            <div class="col-6">QTY {{ lineItem.qty }}</div>
+                        </div>
+                        <div class="row p-3">
+                            <div class="col-6">{{ lineItem.product.name }}</div>
+                        </div>
+                        <div class="row p-3">
+                            <div class="col-6 text-end"><span class="h4 fw-bold">${{ lineItem.product.price }}0</span></div>
+                            <p>{{ lineItem.product.description }}</p>
+                        </div>
+                    </div>
+                        {% endfor %}
 
-{% for lineItem in order.lineitem_set.all %}
-<div>
-    <p>QTY {{ lineItem.qty }}</p>
-    <p>{{ lineItem.product.name }}</p>
-    <p>{{ lineItem.product.description }}</p>
-    <p>${{ lineItem.product.price }}0</p>
-</div>
-{% endfor %}
+                        {% if order.is_paid %}
+                    <div>
+                        <p>Order is paid</p>
+                    </div>
 
-{% if order.is_paid %}
-<div>
-    <p>Order is paid</p>
-</div>
+                        {% else %}
+                    <span>Total Price ${{ order.get_order_total }}0</span>
+                    <form action="{% url 'order:checkout' %}" method="POST">
+                        {% csrf_token %}
 
-{% else %}
-<span>Total Price ${{ order.get_order_total }}0</span>
-<form action="{% url 'order:checkout' %}" method="POST">
-    {% csrf_token %}
-
-    <button type="submit">Checkout</button>
-</form>
+                    <button type="submit">Checkout</button>
+                    </form>
+             
 <a class="btn" href="{% url 'store:products_all' %}">Keep Shopping</a>
 
 {% endif %}
+
 
 {% endblock %}
