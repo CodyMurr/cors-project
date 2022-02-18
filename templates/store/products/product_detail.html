@@ -4,16 +4,15 @@
 {{ product.name }}
 {% endblock %}
 {% block content %}
-<div class="container">
-    <main class="pt-5">
+<div class="container container-color">
+    <main id="margincard">
         <div class="row g-3">
-            <div class="col-md-5 col-lg-5 order-md-first bg-light">
+            <div class="col-md-5 col-lg-5 order-md-first bg-white pt-5" >
                 <img class="img-fluid mx-auto d-block" width="200px" alt="Responsive image" src="{{ product.image }}">
             </div>
-            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
+            <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5 pt-5 pl-5 pr-5">
                 <h1 class="mb-0 h4">{{ product.name }}</h1>
                 <p><span class="lead">{{ product.description }}</span> </p>
-                {% comment %} <p>{{ product.description|slice:":355" }}...</p> {% endcomment %}
                 <p>Product # {{ product.slug }}</p>
                 <div class="border">
                     <div class="col border-bottom">
@@ -47,29 +46,28 @@
         </div>
     </main>
 </div>
+
  <div class="add-review">
         <h3 id="revtitle">Reviews<h3>
-                <h6 id="revh6">Add Review</h6>
+                <h6 id="revh6">Write A Review</h6>
                 <form action="/product/{{ product.slug }}/add_review/" method="POST">
                     {% csrf_token %}
                     {{ review_form.as_p }}
                     <button id="reviewbtn">Add Review</button>
                 </form>
-            </div>
-       
-            <h2 id="rev">Reviews</h2>
-
+    </div> 
+  </div>          
+   
     {% for review in product.review_set.all %}
-    <div class="reviews-container">
-        <div class="review">
-            <h5 class="review-subject">{{ review.subject }}</h5>
-            <span class="username">{{ review.account.username }}</span>
-            <br>
-            <span class="rating">{{ review.rating }}</span>
+            <h3 id="revsec">Review Comments</h3>
+            <section class="sectionrev">
+             <h5 class="review-subject">{{ review.subject }}</h5><br>
+            <span class="username">{{ review.account.username }}</span><br>
+            <span class="rating">{{ review.rating }}</span><br>
             <p class="review-content">{{ review.content }}</p>
-        </div>
-    </div>
-    {% endfor %}
+            </section>
+        
+{% endfor %}
 
 
 {% endblock %}
