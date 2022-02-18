@@ -33,19 +33,7 @@
                 </li>
             {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'basket:basket_summary' %}">
-                        YOUR BAG - 
-                       
-                        {% with total_qty=basket|length %}
-                            <div id="basket-qty" class="d-inline-flex">
-                                {% if total_qty > 0 %}
-                                    {{ total_qty }}    
-                                {% else %}
-                                0
-                                {% endif %}    
-                            </div>
-                        {% endwith %}    
-                        </a>
+                    <a class="nav-link" href="{% url 'order:checkout' %}">CART</a>
                 </li>
             </ul>
         </div>

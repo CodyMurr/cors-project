@@ -22,6 +22,7 @@ main {
   position: absolute;
   top: 0;
 }
+
 #navcolor {
   background-color: white !important;
 }
@@ -94,21 +95,22 @@ img {
 }   */
 
 .products {
-  display: flex; 
-flex-direction: row;
-flex-wrap: wrap;
-justify-content: center;
-margin-bottom: 10%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 10%;
 
 
 }
 
- .product-card {
+.product-card {
   padding: 3%;
   width: 30%;
- } 
+}
 
-.product-image, .card-product-grid {
+.product-image,
+.card-product-grid {
   width: 100%;
   /* margin-left: 20px;  */
   /* background-color: lightgrey; */
@@ -182,6 +184,10 @@ button-solid:focus {
 #revh6 {
   margin-left: 40px;
   margin-bottom: 20px;
+}
+
+#revh2 {
+  margin-left: 40px;
 }
 
 /* <----FOOTER ---> */
