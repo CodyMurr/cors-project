@@ -37,7 +37,7 @@
                                         <option value="4">4</option>
                                     </select>
                                     <button type="submit" class="btn btn-dark text-white btn-sm add-button">Add to
-                                        basket</button>
+                                        cart</button>
                                 </form>
                             </div>
                         </div>
@@ -46,11 +46,18 @@
             </div>
         </div>
     </main>
-
 </div>
-
-<section class="reviews">
-    <h2>Reviews</h2>
+ <div class="add-review">
+        <h3 id="revtitle">Reviews<h3>
+                <h6 id="revh6">Add Review</h6>
+                <form action="/product/{{ product.slug }}/add_review/" method="POST">
+                    {% csrf_token %}
+                    {{ review_form.as_p }}
+                    <button id="reviewbtn">Add Review</button>
+                </form>
+            </div>
+       
+            <h2 id="rev">Reviews</h2>
 
     {% for review in product.review_set.all %}
     <div class="reviews-container">
@@ -64,16 +71,5 @@
     </div>
     {% endfor %}
 
-    <div class="add-review">
-        <h3 id="revtitle">Reviews<h3>
-                <h6 id="revh6">Add Review</h6>
-                <form action="/product/{{ product.slug }}/add_review/" method="POST">
-                    {% csrf_token %}
-                    {{ review_form.as_p }}
-                    <button id="reviewbtn">Add Review</button>
-                </form>
-    </div>
-
-</section>
 
 {% endblock %}
