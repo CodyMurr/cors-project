@@ -46,6 +46,7 @@
         </div>
     </main>
 </div>
+
  <div class="add-review">
         <h3 id="revtitle">Reviews<h3>
                 <h6 id="revh6">Write A Review</h6>
@@ -54,23 +55,18 @@
                     {{ review_form.as_p }}
                     <button id="reviewbtn">Add Review</button>
                 </form>
-            </div> 
-            
-<div class="revcomments">     
-        <h2 id="rev">Reviews</h2>
+    </div> 
+  </div>          
+   
     {% for review in product.review_set.all %}
-    <div class="reviews-container">
-        <div class="review">
-            <h5 class="review-subject">{{ review.subject }}</h5>
-            <span class="username">{{ review.account.username }}</span>
-            <br>
-            <span class="rating">{{ review.rating }}</span>
+            <h3 id="revsec">Review Comments</h3>
+            <section class="sectionrev">
+             <h5 class="review-subject">{{ review.subject }}</h5><br>
+            <span class="username">{{ review.account.username }}</span><br>
+            <span class="rating">{{ review.rating }}</span><br>
             <p class="review-content">{{ review.content }}</p>
-        </div>
-    </div>
-</div>
-    
-
+            </section>
+        
 {% endfor %}
 
 

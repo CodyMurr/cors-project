@@ -101,15 +101,10 @@ img {
 
 .add-review {
   margin-top: 40px;
-  margin-left: 140px;
-  margin-bottom: 50px;
+  margin-left: 10%;
+  /* margin-bottom: 50px; */
 }
 
-.reviews-container {
-  margin-left: 140px;
-  margin-bottom: 15%;
-
-}
 
 #reviewbtn {
   margin-left: 68px;
@@ -118,7 +113,6 @@ img {
 #revtitle {
   margin-left: 40px;
   color: gray;
-
 }
 
 #revh6 {
@@ -126,8 +120,18 @@ img {
   margin-bottom: 20px;
 }
 
-#revh2 {
-  margin-left: 40px;
+
+#revsec {
+  margin-top: 5%;
+  margin-left: 10%;
+  color: gray;
+}
+
+.sectionrev {
+  margin-top: 2%;
+  margin-left: 10%;
+  margin-bottom: 13%;
+  display: flex;
 }
 
 /* <----FOOTER ---> */
