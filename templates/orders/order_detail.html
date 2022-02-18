@@ -30,7 +30,7 @@
 </div>
 
 {% else %}
-
+<span>Total Price ${{ order.get_order_total }}0</span>
 <form action="{% url 'order:checkout' %}" method="POST">
     {% csrf_token %}
 
