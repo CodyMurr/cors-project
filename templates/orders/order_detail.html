@@ -18,9 +18,8 @@
 <div>
     <p>QTY {{ lineItem.qty }}</p>
     <p>{{ lineItem.product.name }}</p>
-    <p>{{ lineItem.product.category }}</p>
     <p>{{ lineItem.product.description }}</p>
-    <p>{{ lineItem.product.price }}</p>
+    <p>${{ lineItem.product.price }}0</p>
 </div>
 {% endfor %}
 
@@ -36,6 +35,7 @@
 
     <button type="submit">Checkout</button>
 </form>
+<a class="btn" href="{% url 'store:products_all' %}">Keep Shopping</a>
 
 {% endif %}
 
