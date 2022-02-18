@@ -1,4 +1,5 @@
 {% extends "store/base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -17,8 +18,10 @@
         <div class="row g-3">
             <div class="col-md-7 col-lg-7 ps-md-3 ps-lg-5">
                 {% for lineItem in order.lineitem_set.all %}
+
                 <h1 class="mb-0 h4">{{ product.name }}</h1>
                 <p><span class="lead">{{ product.description }}</span> </p>
+
                 <div class="border">
                     <div class="col border-bottom">
                         <div class="row p-3">
@@ -45,13 +48,20 @@
                     <span>Total Price ${{ order.get_order_total }}0</span>
                     <form action="{% url 'order:checkout' %}" method="POST">
                         {% csrf_token %}
-
-                    <button type="submit">Checkout</button>
+                      <button type="submit">Checkout</button>
                     </form>
+   
+                    <a class="btn" href="{% url 'store:products_all' %}">Keep Shopping</a>
+
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </main>
+</div>
              
 <a class="btn" href="{% url 'store:products_all' %}">Keep Shopping</a>
 
 {% endif %}
-
-
 {% endblock %}
