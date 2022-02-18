@@ -38,7 +38,7 @@ class Command(BaseCommand):
         for i in get_products():
             detail = product_detail(i["productId"], i["currentSku"]["skuId"])
             product = Product(
-                # category = Category(name=detail["parentCategory"]["parentCategory"]["displayName"], slug=detail["parentCategory"]["parentCategory"]["displayName"]),
+                category = Category(name=detail["parentCategory"]["parentCategory"]["displayName"], slug=detail["parentCategory"]["parentCategory"]["displayName"]),
                 name = detail["brand"]["displayName"],
                 slug = detail["productId"],
                 description = detail["quickLookDescription"],
