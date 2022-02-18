@@ -9,19 +9,23 @@ a full-CRUD web app to allow users to have a customized shopping experience. The
 
 
 
-# ***Screen Shot***
+# ***Screen Shots***
+
+
+
+# ***Home***
 ![]()
 
 
 
 
-# ***Add Design***
+# ***About***
 
 ![]()
 
 
 
-# ***User Design With Title***
+# ***Products***
 
 ![]()
 
