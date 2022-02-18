@@ -25,6 +25,13 @@ class Order(models.Model):
         except:
             cart = cls.objects.create(user=user, order_number=uuid.uuid4().hex[:8])
         return cart
+    def get_order_total(self):
+        total = 0
+        for key in self.lineitem_set.all():
+            total += (key.qty * key.product.price)
+        return total
+
+
 
         
 class LineItem(models.Model):
