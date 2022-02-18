@@ -47,11 +47,9 @@
                         {% csrf_token %}
 
                     <button type="submit" id="cartbtn">Checkout</button>
-                    <a class="btn" href="{% url 'store:products_all' %}">Keep Shopping</a>
                     </form>
-                
-             
-                    
+
+                    <a class="btn" href="{% url 'store:products_all' %}">Keep Shopping</a>
 
                     {% endif %}
 

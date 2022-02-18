@@ -13,4 +13,5 @@ urlpatterns = [
     path('<slug:slug>/', views.product_detail, name='product_detail'),
     path('shop/<slug:category_slug>/',
          views.category_list, name='category_list'),
+    path('delete/<int:pk>/', views.ReviewDelete.as_view(), name="review_delete")
 ]
