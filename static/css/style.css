@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
 body {
   display: flex;
@@ -91,6 +92,22 @@ img {
 }
 
 /* <------ORDERS------> */
+.titleorder {
+  color: gray;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family: 'Libre Baskerville',
+    serif;
+}
+
+.titlecart {
+  color: gray;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family: 'Libre Baskerville',
+    serif;
+}
+
 /* <-------Product Details------> */
 
 .container-color {
