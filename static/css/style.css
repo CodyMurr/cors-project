@@ -92,7 +92,9 @@ img {
 
 /* <------ORDERS------> */
 
-
+.btn {
+  text-decoration: underline solid black 1px;
+}
 
 
 /* <-----Reviews-----> */
@@ -103,8 +105,8 @@ img {
   margin-bottom: 50px;
 }
 
-.revcomments {
-  margin-left: 70px;
+.reviews-container {
+  margin-left: 140px;
   margin-bottom: 15%;
 
 }
