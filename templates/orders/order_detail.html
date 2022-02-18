@@ -1,19 +1,11 @@
 {% extends "store/base.html" %}
 {% load static %}
-
 {% block content %}
-
 {% if order.is_paid %}
-
 <h1 class="titleorder">Order Detail</h1>
-
 {% else %}
-
 <h1 class="titlecart">Cart Details</h1>
-
-
 {% endif %}
-
 <div class="container container-color">
     <main class="pt-5">
         <div class="row g-3">
@@ -35,28 +27,21 @@
                         </div>
                     </div>
                         {% endfor %}
-
                         {% if order.is_paid %}
                     <div>
                         <p>Order is paid</p>
                     </div>
-
                         {% else %}
                     <span>Total Price ${{ order.get_order_total }}0</span>
                     <form action="{% url 'order:checkout' %}" method="POST">
                         {% csrf_token %}
-
                     <button type="submit" id="cartbtn">Checkout</button>
-                    </form>
-
                     <a class="btn" href="{% url 'store:products_all' %}">Keep Shopping</a>
-
+                    </form>
                     {% endif %}
-
                 </div>
             </div>
         </div>
     </main>
 </div>
-
 {% endblock %}
